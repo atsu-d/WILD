@@ -1,0 +1,49 @@
+
+ 1. Interactable Objects
+  A. Placeable interactables   
+    --------a. Droppable interactables
+  B. Usable interactables (coffee bean machine?)
+  C. Toggle interaction (ie signs, lights)
+  D. Purchasable 
+      a. scriptable objects for prices
+  --------E. Way for multiple types of interactions to coexist. ie. Light is purchaseable, Toggeable, and placeable
+      a. Priority system? Purchasable to get into OWNED state, then -> Placeable. When in PLACED state, it can be USED/TOGGLED with single tap E, or picked back up again with HOLD E
+  --------F. 3D ui for interactables
+ 
+ 2. Container Objects
+    A. Storage containers ie Fridges, furniture storage
+    B. Coffee cup containers for mixed drinks
+
+ 3. Items on head
+  A. Selectable items
+    --------a. Hotbar tied to items
+    --------b. dynamic "slots" on character
+    --------c. Scroll wheel selection
+    --------d. Number Keys selection
+  B. Dynamic element. Items wobble on head when stacked. When running into a low doorway, items affected will fall off. 
+    a. Use world transform Up to lerp items upright
+    b. Use a variable to control the wobbiness of objects. Bags of coffee beans wobble less, where as cups wobble more. 
+
+ 4. Sell system
+  A. Adjustable prices
+      a. Use scriptable objects to store info like Last Sell Price for sold items for easier repeat sellings.
+
+ --------5. Fix bug where multiple items are being picked up.
+
+ --------6. Replace sprint acceleration lerp with animation curve.
+
+
+
+ Trolley
+    "When moving with the train, the speed of the train is your speed. You are in the same frame of inertia. 
+    When you jump in the train, you do not encounter air resistance, and you usually encounter little to no force 
+    and there is no change in your speed. That's why you fall in the same place when you jump."
+
+
+ d2 interaction system. 
+ d3 pick up items. Integrated to Unity input system. 
+ d4 inventory system integrated. sprint system moved over to animation curve
+ d5 Scroll/Number selection of hotbar. Tied hotbars to items!
+ d6 Droppable items. Foundation for dynamic display item slots has started.
+ d7 Revamped display item system to work directly with the inventory system. Dynamic slots for the display items. Droppable items reworked. Allow display items to not affect camera's physics or the player's movement. Fixed numerous bugs.
+ d9 World UI icons for interactables. Revamped interactable scripts to behave more like a state machine so behaviors are more interchangeable.
