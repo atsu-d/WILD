@@ -895,6 +895,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1457344649512708, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
   m_PrefabInstance: {fileID: 349325492}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &103523158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4330475428530982, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+  m_PrefabInstance: {fileID: 349325492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &103523159 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20395501606822184, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
@@ -2375,8 +2380,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: accelCurve.m_Curve.Array.data[1].inSlope
+      propertyPath: accelCurve.m_Curve.Array.data[0].inSlope
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: accelCurve.m_Curve.Array.data[1].inSlope
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: decelCurve.m_Curve.Array.data[0].inSlope
@@ -2387,8 +2396,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: accelCurve.m_Curve.Array.data[1].outSlope
+      propertyPath: accelCurve.m_Curve.Array.data[0].outSlope
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: accelCurve.m_Curve.Array.data[1].outSlope
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: decelCurve.m_Curve.Array.data[0].outSlope
@@ -6696,15 +6709,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c386a904ad8694b96a40c2365f6363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 6.25
-  raycastSphereRadius: 0.275
+  raycastDistance: 3
+  raycastSphereRadius: 0.25
   interactableLayer:
     serializedVersion: 2
     m_Bits: 264
   cam: {fileID: 103523159}
-  inventoryTr: {fileID: 1558746140}
   activeIndex: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
-  modelTr: {fileID: 1022045315}
+  inventoryTr: {fileID: 1558746140}
 --- !u!114 &889244265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7653,11 +7665,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc8ceadc0b3549e4bb5ab1d412142f45, type: 3}
---- !u!4 &1022045315 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4694125178534462, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-  m_PrefabInstance: {fileID: 349325492}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1030340206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4298710278458246, guid: f557ed81f5649d640a89cc935866bedb, type: 3}
@@ -11070,11 +11077,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558746139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1022045315}
+  m_Father: {fileID: 103523158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1561323065 stripped

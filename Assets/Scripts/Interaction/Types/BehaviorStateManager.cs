@@ -12,10 +12,8 @@ namespace ItemSystem
         [SerializeField] private HoldBehavior holdBehavior;
         [SerializeField] private ItemBehavior secondaryTapBehavior; //R Key
 
-        [SerializeField] private Transform upperSnap;
-        public Transform UpperSnap => upperSnap;
         protected int nonInteractableLayer = 30;
-
+        private Collider col;
         public bool HoldInteract => holdBehavior != null;
         public float HoldDuration => holdBehavior.holdDuration;
 
@@ -26,6 +24,7 @@ namespace ItemSystem
             if (primaryTapBehavior != null) primaryTapBehavior.Initialize(itemData);
             if (holdBehavior != null) holdBehavior.Initialize(itemData);
             if (secondaryTapBehavior != null) secondaryTapBehavior.Initialize(itemData);
+            col = GetComponent<Collider>();
         }
 
         private void Start()
@@ -49,12 +48,22 @@ namespace ItemSystem
             }
         }
 
+        private void ZeroTransforms()
+        {
+            transform.localPosition = Vector3.zero;
+            transform.rotation = Quaternion.identity;
+        }
+
         public virtual void SetNonInteractive()
         {
             gameObject.layer = nonInteractableLayer;
+            col.enabled = false;
+
+            ZeroTransforms();
+            TurnOffWorldIcon();
         }
 
-        public virtual void TurnOffWorldIcon()
+        private void TurnOffWorldIcon()
         {
             iconUI.gameObject.SetActive(false);
         }

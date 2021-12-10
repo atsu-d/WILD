@@ -25,17 +25,15 @@ namespace ItemSystem
         private float holdTimer = 0f;
         public float holdPercent { get; private set; }
 
-        [SerializeField] Transform inventoryTr;
-        public Transform InventoryTr => inventoryTr;
-
         private InputAction dropInput;
         private ItemData activeHotbar;
+        private BehaviorStateManager activeDisplayItem;
         private InventorySystem playerInventory;
 
         [SerializeField] private StaticInt activeIndex;
 
-        [SerializeField] private Transform modelTr;
         public static Transform camTr;
+        [SerializeField] Transform inventoryTr;
 
         private void Awake()
         {
@@ -63,14 +61,23 @@ namespace ItemSystem
         {
             if (activeIndex.Value > playerInventory.inventory.Count) return;
 
-            if (activeIndex.Value == 0) activeHotbar = null;
-            else activeHotbar = playerInventory.inventory[activeIndex.Value - 1].data;
+            if (activeDisplayItem != null) Destroy(activeDisplayItem.gameObject);
+
+            if (activeIndex.Value == 0) { activeHotbar = null; }
+            else
+            {
+                activeHotbar = playerInventory.inventory[activeIndex.Value - 1].data;
+
+                activeDisplayItem = Instantiate(activeHotbar.Prefab, inventoryTr).GetComponent<BehaviorStateManager>();
+                activeDisplayItem.SetNonInteractive();
+            }
         }
 
         private void DropInput(InputAction.CallbackContext context)
         {
             if (activeIndex.Value <= 0 || activeHotbar == null) return;
 
+            if (activeDisplayItem != null) Destroy(activeDisplayItem.gameObject);
             playerInventory.Remove(activeHotbar);
             activeIndex.Select(0);
 

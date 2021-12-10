@@ -1,0 +1,70 @@
+Arideum
+base monsters off of exinct species.
+
+stripe = clavo
+striped = alba
+branches = rami
+tree = arbor
+tall = alta / altus . altum
+great = magnus
+leg = crus
+twist = intorqueo
+root = radix
+skin = pellis
+short = brevis
+wish = volo / cupio / opto
+above ground = superus 
+bare = nudo 
+
+
+NudoRadix Nurix "Bare Roots"
+NudoCrusRadix Nudrius Nidryan Niran - Niranroot "Bare Leg Roots"
+Albarami Albami Alden - Aldentrees  "Striped Branches"
+
+Aldentrees: Striped trees with monstera-like leaves sprout out the top
+
+Nirantrees: Several Niranroots that grew towards each other to intertwine in order to
+combine their seeds. The new seed is then grown towards the sky and spread out via a 
+networking canopy. NOT a fruit, since the tree reproduced by spreading through the canopy,
+rather then relying on wildlife to disperse their seeds.
+
+[COMPANY]
+
+CANVAS Technology
+Diligent Robotics
+Boston Dynamics
+Bluefin Robotics
+Applied Aeronautics
+Left Hand Robotics
+
+Aero 
+-- Robotics
+-- Orbital
+-- Industry
+-- Frontier
+-- Interstellar
+-- Kinetics
+Fauci
+Greta Thunberg
+Vic Barrett
+Bradham
+Al Gore
+Walsh
+Chapman
+Bowe
+Wernher
+Heine
+Hoesung Lee
+Ma Jun
+Autumn Peltier
+Harsh Vardhan 
+Vandana Shiva 
+Ridges
+Hubert
+Webb
+
+Vardham Frontier
+Hubert-Ridges Interstellar
+Vardham-Bowe Interstellar
+Peltberg Robotics
+Bradham-Werner Orbital
