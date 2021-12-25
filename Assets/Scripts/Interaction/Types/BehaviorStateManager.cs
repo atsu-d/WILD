@@ -51,7 +51,7 @@ namespace ItemSystem
         private void ZeroTransforms()
         {
             transform.localPosition = Vector3.zero;
-            transform.rotation = Quaternion.identity;
+            transform.rotation = transform.parent.rotation;
         }
 
         public virtual void SetNonInteractive()

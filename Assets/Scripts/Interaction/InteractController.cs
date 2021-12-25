@@ -17,9 +17,10 @@ namespace ItemSystem
         public float raycastSphereRadius;
         public LayerMask interactableLayer;
 
-        [SerializeField]private Camera cam;
+        [SerializeField] private Camera cam;
 
         public BehaviorStateManager currentInteraction { get; private set; }
+        public ContainerSystem currentContainer { get; private set;}
 
         public bool isInteracting { get; private set; }
         private float holdTimer = 0f;
@@ -30,7 +31,7 @@ namespace ItemSystem
         private BehaviorStateManager activeDisplayItem;
         private InventorySystem playerInventory;
 
-        [SerializeField] private StaticInt activeIndex;
+        [SerializeField] private IntVariable activeIndex;
 
         public static Transform camTr;
         [SerializeField] Transform inventoryTr;
@@ -59,14 +60,14 @@ namespace ItemSystem
 
         private void SetActiveInteractable()
         {
-            if (activeIndex.Value > playerInventory.inventory.Count) return;
+            if (activeIndex.value > playerInventory.inventory.Count) return;
 
             if (activeDisplayItem != null) Destroy(activeDisplayItem.gameObject);
 
-            if (activeIndex.Value == 0) { activeHotbar = null; }
+            if (activeIndex.value == 0) { activeHotbar = null; }
             else
             {
-                activeHotbar = playerInventory.inventory[activeIndex.Value - 1].data;
+                activeHotbar = playerInventory.inventory[activeIndex.value - 1].data;
 
                 activeDisplayItem = Instantiate(activeHotbar.Prefab, inventoryTr).GetComponent<BehaviorStateManager>();
                 activeDisplayItem.SetNonInteractive();
@@ -75,20 +76,43 @@ namespace ItemSystem
 
         private void DropInput(InputAction.CallbackContext context)
         {
-            if (activeIndex.Value <= 0 || activeHotbar == null) return;
+            if (activeIndex.value <= 0 || activeHotbar == null) return;
 
-            if (activeDisplayItem != null) Destroy(activeDisplayItem.gameObject);
-            playerInventory.Remove(activeHotbar);
-            activeIndex.Select(0);
+            #region Drop to Ground
+            if (currentContainer == null)
+            {
+                
 
-            Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
+                playerInventory.Remove(activeHotbar);
+                Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
+                BehaviorStateManager _interactable = Instantiate(activeHotbar.Prefab, _origin, Quaternion.identity).GetComponent<BehaviorStateManager>();
+                _interactable.OnInteract(InteractionType.Drop);
 
-            BehaviorStateManager _interactable = Instantiate(activeHotbar.Prefab, _origin, Quaternion.identity).GetComponent<BehaviorStateManager>();
-            
-            _interactable.OnInteract(InteractionType.Drop);
 
+                ResetHotbar();
+            }
+            #endregion
+
+            #region Add to storage
+            if (currentContainer != null && currentContainer.CanAdd(activeHotbar))
+            {
+                Destroy(activeDisplayItem.gameObject);
+
+                playerInventory.Remove(activeHotbar);
+                currentContainer.Add(activeHotbar);
+
+                ResetHotbar();
+            }
+            #endregion
+
+        }
+
+        private void ResetHotbar()
+        {
+            activeIndex.Set(0);
             activeHotbar = null;
         }
+
 
         private void HandleInteraction()
         {
@@ -138,9 +162,15 @@ namespace ItemSystem
             if (_foundInteractable)
             {
                 BehaviorStateManager _currentInteraction = _hit.transform.gameObject.GetComponent<BehaviorStateManager>();
+
                 if (_currentInteraction != null && currentInteraction != _currentInteraction)
+                { currentInteraction = _currentInteraction; }
+
+                if(activeIndex.value != 0)
                 {
-                    currentInteraction = _currentInteraction;
+                    ContainerSystem _currentContainer = _hit.transform.gameObject.GetComponent<ContainerSystem>();
+
+                    if (_currentContainer != null && currentContainer != _currentContainer) currentContainer = _currentContainer;
                 }
             }
             else ResetInteraction();
@@ -152,10 +182,13 @@ namespace ItemSystem
 
         public void ResetInteraction()
         {
-            if (currentInteraction == null) return;
-
-            currentInteraction = null;
+            if (currentInteraction != null || currentContainer != null)
+            {
+                currentInteraction = null;
+                currentContainer = null;
+            }
         }
+
 
         private void OnEnable()
         {

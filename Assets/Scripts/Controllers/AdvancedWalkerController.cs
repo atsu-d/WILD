@@ -67,6 +67,8 @@ namespace PlayerController
 		[Tooltip("Whether to calculate and apply momentum relative to the controller's transform.")]
 		public bool useLocalMomentum = false;
 
+		public Vector3Variable playerVelocity;
+
 		//Enum describing basic controller states; 
 		public enum ControllerState
 		{
@@ -202,6 +204,8 @@ namespace PlayerController
 
 			//Multiply (normalized) velocity with movement speed;
 			_velocity *= movementSpeed;
+			
+			playerVelocity.Set(_velocity);
 
 			return _velocity;
 		}

@@ -1,3 +1,11 @@
+I. ITEMS
+    A. Food
+    B. Tools
+
+II. BUILD
+
+III. ANIMALS
+
 
  1. Interactable Objects
   A. Placeable interactables   

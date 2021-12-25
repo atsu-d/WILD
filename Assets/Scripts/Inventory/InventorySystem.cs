@@ -7,26 +7,23 @@ using UnityEngine.InputSystem;
 
 namespace ItemSystem
 {
-    public class InventorySystem : MonoBehaviour
+    public class InventorySystem : ContainerSystem
     {
         public PlayerInput playerInput;
         public static InventorySystem PlayerInventory = null;
-        private Dictionary<ItemData, InventoryItem> itemDictionary;
-        [SerializeField]  public List<InventoryItem> inventory { get; private set; }
 
         public event Action OnInventoryUpdate;
 
-        [SerializeField] private StaticInt activeHotbar;
+        [SerializeField] private IntVariable activeHotbar;
         public event Action OnHotbarSelection;
 
         private InputAction scrollInput;
         private InputAction keyOne, keyTwo, keyThree, keyFour, keyFive, keySix, keySeven, keyEight, keyNine;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             PlayerInventory = this;
-            inventory = new List<InventoryItem>();
-            itemDictionary = new Dictionary<ItemData, InventoryItem>();
             playerInput = new PlayerInput();
         }
 
@@ -36,8 +33,8 @@ namespace ItemSystem
 
             if (_scrollDelta == 0 || inventory.Count <= 0) return;
 
-            if (_scrollDelta > 0) activeHotbar.Select(HotbarInt(activeHotbar.Value, true));
-            else activeHotbar.Select(HotbarInt(activeHotbar.Value, false));
+            if (_scrollDelta > 0) activeHotbar.Set(HotbarInt(activeHotbar.value, true));
+            else activeHotbar.Set(HotbarInt(activeHotbar.value, false));
 
             if (OnHotbarSelection != null) OnHotbarSelection();
         }
@@ -49,8 +46,8 @@ namespace ItemSystem
 
             if (inventory.Count <= 0 || inventory.Count < _keyPressed) return;
 
-            if (_keyPressed == activeHotbar.Value) activeHotbar.Select(0);
-            else activeHotbar.Select(_keyPressed);
+            if (_keyPressed == activeHotbar.value) activeHotbar.Set(0);
+            else activeHotbar.Set(_keyPressed);
 
             if (OnHotbarSelection != null) OnHotbarSelection();
         }
@@ -73,41 +70,15 @@ namespace ItemSystem
             }
         }
 
-        public InventoryItem Get(ItemData _data)
+        public override void Add(ItemData _data)
         {
-            if (itemDictionary.TryGetValue(_data, out InventoryItem value)) return value;
-            return null; 
-        }
-
-        public void Add(ItemData _data)
-        {
-            if (itemDictionary.TryGetValue(_data, out InventoryItem value))
-            {
-                value.AddToStack();
-            }
-            else
-            {
-                InventoryItem _newItem = new InventoryItem(_data);
-                inventory.Add(_newItem);
-                itemDictionary.Add(_data, _newItem);
-            }
-
+            base.Add(_data);
             if (OnInventoryUpdate != null) OnInventoryUpdate();
         }
 
-        public void Remove(ItemData _data)
+        public override void Remove(ItemData _data)
         {
-            if (itemDictionary.TryGetValue(_data, out InventoryItem value))
-            {
-                value.RemoveFromStack();
-
-                if(value.stackSize == 0)
-                {
-                    inventory.Remove(value);
-                    itemDictionary.Remove(_data);
-                }
-            }
-
+            base.Remove(_data);
             if (OnInventoryUpdate != null) OnInventoryUpdate();
         }
 

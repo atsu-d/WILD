@@ -7,9 +7,11 @@ namespace ItemSystem
     public class Drop : ItemBehavior
     {
         private Rigidbody rb;
-        private float throwForce = 7f;
+        private float throwForce = 3f;
         private Transform throwDir;
+        public Vector3Variable playerVel;
 
+        public bool removeVertical = false;
         public override void Initialize(ItemData _data)
         {
             base.Initialize(_data);
@@ -22,7 +24,10 @@ namespace ItemSystem
         {
             rb.isKinematic = false;
 
-            rb.AddForce(throwDir.forward * throwForce, ForceMode.Impulse);
+            Vector3 _force = playerVel.value + (throwDir.forward * throwForce);
+            if (removeVertical) _force.y = 0;
+
+            rb.AddForce(_force, ForceMode.VelocityChange);
         }
     }
 }

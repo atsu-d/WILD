@@ -25,7 +25,6 @@ namespace ItemSystem
         private Transform cameraTr;
         private Transform playerTr;
 
-        private float speed = 40f;
         private float multiplier = 0.15f;
 
         private float minDistance = 1.25f;
@@ -49,12 +48,16 @@ namespace ItemSystem
             if (interactController.currentInteraction != item && !idleImage.enabled) SetIdle();
 
             float _distance = Vector3.Distance(transform.position, playerTr.position) * multiplier;
-            if (_distance <= 1.5f) Orbit();
+
+            if (_distance <= minDistance + 0.24f) FaceCamera();
 
             switch (currentState)
             {
                 case ImageState.idle:
-                    if (_distance <= minDistance && idleImage.enabled) FadeOpacity(_distance);
+                    if (_distance <= minDistance && idleImage.enabled)
+                    { 
+                        FadeOpacity(_distance);
+                    }
                     break;
                 case ImageState.hold:
                     FillBar();
@@ -64,15 +67,13 @@ namespace ItemSystem
             }
         }
 
+        private void FaceCamera()
+        {
+            transform.rotation = Quaternion.LookRotation(cameraTr.position - transform.position);
+        }
         private void FillBar()
         {
             holdImage[1].fillAmount = interactController.holdPercent;
-        }
-
-        private void Orbit()
-        {
-            float _step = Time.deltaTime * speed;
-            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, cameraTr.position - transform.position, _step, 0f));
         }
 
         private void FadeOpacity(float _distance)

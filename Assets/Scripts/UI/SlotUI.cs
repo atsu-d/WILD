@@ -15,7 +15,7 @@ namespace ItemSystem
         private float selectScale = 1.5f;
 
         public int hotbarNum { get; private set; }
-        [SerializeField] private StaticInt activeHotbar;
+        [SerializeField] private IntVariable activeHotbar;
 
         public void Set(InventoryItem _item, int _inventoryNumber)
         {
@@ -27,7 +27,7 @@ namespace ItemSystem
 
         private void SetScale()
         {
-            if (hotbarNum == activeHotbar.Value)
+            if (hotbarNum == activeHotbar.value)
             {
                 icon.rectTransform.localScale = Vector3.one * selectScale;
             }

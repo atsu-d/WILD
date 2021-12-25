@@ -207,7 +207,6 @@ MonoBehaviour:
   primaryTapBehavior: {fileID: 0}
   holdBehavior: {fileID: 3389557442362600158}
   secondaryTapBehavior: {fileID: 5664924970564615194}
-  upperSnap: {fileID: 0}
   iconUI: {fileID: 8681559984735983884}
 --- !u!114 &3389557442362600158
 MonoBehaviour:
@@ -234,6 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc53f7c4482fe748bfe0c69247ab7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVel: {fileID: 11400000, guid: 2de8865d59c4903408fd4bb9e52547f0, type: 2}
+  removeVertical: 0
 --- !u!1 &2821808520320103948
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821808520320103948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1857472515}
@@ -336,7 +337,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4266993753607398560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565563216644568884}
@@ -411,7 +412,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7307382637605979556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565563216644568884}
