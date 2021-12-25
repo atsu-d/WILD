@@ -9,6 +9,7 @@ namespace ItemSystem
 {
     public class InventorySystem : ContainerSystem
     {
+        public ManagerReference reference;
         public PlayerInput playerInput;
         public static InventorySystem PlayerInventory = null;
 
@@ -22,6 +23,8 @@ namespace ItemSystem
 
         protected override void Awake()
         {
+            reference.SetInventoryManager(this);
+
             base.Awake();
             PlayerInventory = this;
             playerInput = new PlayerInput();

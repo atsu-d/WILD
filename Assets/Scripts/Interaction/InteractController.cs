@@ -8,6 +8,7 @@ namespace ItemSystem
 {
     public class InteractController : MonoBehaviour
     {
+        public ManagerReference reference;
         public static InteractController Controller;
         public PlayerInput inputManger;
         private InputAction interactInput;
@@ -39,6 +40,7 @@ namespace ItemSystem
         private void Awake()
         {
             if (Controller == null) Controller = this;
+            reference.SetInteractManager(this);
 
             inputManger = new PlayerInput();
 
@@ -81,7 +83,7 @@ namespace ItemSystem
             #region Drop to Ground
             if (currentContainer == null)
             {
-                
+                Destroy(activeDisplayItem.gameObject);
 
                 playerInventory.Remove(activeHotbar);
                 Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
