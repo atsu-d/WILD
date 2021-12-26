@@ -6,18 +6,15 @@ using UnityEngine.InputSystem;
 
 namespace ItemSystem
 {
-    public class InventorySystem : ContainerSystem
+    public class InventoryManager : ContainerManager
     {
         public ManagerReference managers;
         public PlayerInput playerInput;
 
-        public event Action OnInventoryUpdate;
-
         [SerializeField] private IntVariable activeHotbar;
-        public event Action OnHotbarSelection;
 
-        private InputAction scrollInput;
-        private InputAction keyOne, keyTwo, keyThree, keyFour, keyFive, keySix, keySeven, keyEight, keyNine;
+        public event Action OnInventoryUpdate, OnHotbarSelection;
+        private InputAction scrollInput, keyOne, keyTwo, keyThree, keyFour, keyFive, keySix, keySeven, keyEight, keyNine;
 
         protected override void Awake()
         {
@@ -124,7 +121,6 @@ namespace ItemSystem
             keyNine.performed += Select;
             #endregion
         }
-
 
         private void OnDisable()
         {
