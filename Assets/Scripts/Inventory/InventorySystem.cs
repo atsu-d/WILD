@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 namespace ItemSystem
 {
     public class InventorySystem : ContainerSystem
     {
-        public ManagerReference reference;
+        public ManagerReference managers;
         public PlayerInput playerInput;
-        public static InventorySystem PlayerInventory = null;
 
         public event Action OnInventoryUpdate;
 
@@ -23,11 +21,16 @@ namespace ItemSystem
 
         protected override void Awake()
         {
-            reference.SetInventoryManager(this);
+            managers.SetInventoryManager(this);
 
             base.Awake();
-            PlayerInventory = this;
+
             playerInput = new PlayerInput();
+        }
+
+        private void Start()
+        {
+            managers.managerEvent.CallEvent();
         }
 
         private void ScrollSelect(InputAction.CallbackContext context)

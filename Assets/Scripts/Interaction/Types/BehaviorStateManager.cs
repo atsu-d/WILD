@@ -7,6 +7,7 @@ namespace ItemSystem
     public class BehaviorStateManager : MonoBehaviour
     {
         [SerializeField] private ItemData itemData;
+        public ItemData Data => itemData;
 
         [SerializeField] private ItemBehavior primaryTapBehavior; // E Key
         [SerializeField] private HoldBehavior holdBehavior;

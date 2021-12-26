@@ -9,6 +9,8 @@ public class ManagerReference : ScriptableObject
     public InventorySystem InventoryManager { get; private set; }
     public InteractController InteractManager { get; private set; }
 
+    public GameEvent managerEvent;
+
     #region Setters
     public void SetInventoryManager(InventorySystem _playerInventory) { InventoryManager = _playerInventory; }
 

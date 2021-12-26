@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee37761cdd54f3a4197ae8c86e18669f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
   icon: {fileID: 6436283013047014166}
   weightText: {fileID: 5508458965375968861}
   hotbarText: {fileID: 5503558442800793717}

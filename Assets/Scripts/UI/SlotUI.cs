@@ -9,6 +9,7 @@ namespace ItemSystem
 {
     public class SlotUI : MonoBehaviour
     {
+        public ManagerReference managers;
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI weightText;
         [SerializeField] private TextMeshProUGUI hotbarText;
@@ -34,14 +35,14 @@ namespace ItemSystem
             else if (icon.rectTransform.localScale != Vector3.one) icon.rectTransform.localScale = Vector3.one;
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            InventorySystem.PlayerInventory.OnHotbarSelection += SetScale;
+            managers.InventoryManager.OnHotbarSelection += SetScale;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            InventorySystem.PlayerInventory.OnHotbarSelection -= SetScale;
+            managers.InventoryManager.OnHotbarSelection -= SetScale;
         }
     }
 

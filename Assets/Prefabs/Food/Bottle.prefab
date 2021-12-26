@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9edb130cd76cd549ad3c651577b5ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -567,6 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoldDuration: 0.5
+  managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
 --- !u!114 &1111533482906953094
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ namespace ItemSystem
 {
     public class WorldIconUI : MonoBehaviour
     {
+        public ManagerReference managers;
+
         private enum ImageState
         {
             idle, hold, interact
@@ -15,7 +17,6 @@ namespace ItemSystem
         private ImageState currentState;
 
         private BehaviorStateManager item;
-        private InteractController interactController;
         [SerializeField] private AnimationCurve fadeCurve;
 
         [SerializeField] private Image idleImage;
@@ -36,16 +37,14 @@ namespace ItemSystem
 
         private void Start()
         {
-            interactController = InteractController.Controller;
             cameraTr = InteractController.camTr;
             playerTr = PlayerController.AdvancedWalkerController.PlayerTR;
             SetIdle();
         }
 
-
         private void LateUpdate()
         {
-            if (interactController.currentInteraction != item && !idleImage.enabled) SetIdle();
+            if (managers.InteractManager.currentInteraction != item && !idleImage.enabled) SetIdle();
 
             float _distance = Vector3.Distance(transform.position, playerTr.position) * multiplier;
 
@@ -73,7 +72,7 @@ namespace ItemSystem
         }
         private void FillBar()
         {
-            holdImage[1].fillAmount = interactController.holdPercent;
+            holdImage[1].fillAmount = managers.InteractManager.holdPercent;
         }
 
         private void FadeOpacity(float _distance)

@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace ItemSystem
 {
-    public class InventoryUI : MonoBehaviour
+    public class InventoryUI : MonoBehaviour, IEventListener
     {
+        public ManagerReference managers;
         [SerializeField] private GameObject slotPrefab;
 
         private void OnUpdateInventory()
@@ -20,9 +21,9 @@ namespace ItemSystem
 
         public void DrawInventory()
         {
-            foreach (InventoryItem _item in InventorySystem.PlayerInventory.inventory)
+            foreach (InventoryItem _item in managers.InventoryManager.inventory)
             {
-                int _position = InventorySystem.PlayerInventory.inventory.IndexOf(_item) + 1;
+                int _position = managers.InventoryManager.inventory.IndexOf(_item) + 1;
                 AddInventorySlot(_item, _position);
             }
         }
@@ -36,15 +37,22 @@ namespace ItemSystem
             _slot.Set(_item, _inventoryPos);
         }
 
-        private void Start()
+        public void OnEventCalled()
         {
-            InventorySystem.PlayerInventory.OnInventoryUpdate += OnUpdateInventory;
+            managers.InventoryManager.OnInventoryUpdate += OnUpdateInventory;
         }
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            InventorySystem.PlayerInventory.OnInventoryUpdate -= OnUpdateInventory;
+            managers.managerEvent.RegisterListener(this);
         }
+
+        private void OnDisable()
+        {
+            managers.managerEvent.UnregisterListener(this);
+            managers.InventoryManager.OnInventoryUpdate -= OnUpdateInventory;
+        }
+
     }
 
 }
