@@ -1089,6 +1089,134 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Build"",
+            ""id"": ""afb15537-07d3-49c0-89ab-85f1b26a8ad8"",
+            ""actions"": [
+                {
+                    ""name"": ""Place"",
+                    ""type"": ""Button"",
+                    ""id"": ""36bf3fa6-be85-4e22-ba30-59c72d849dd4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Destroy"",
+                    ""type"": ""Button"",
+                    ""id"": ""187aa28e-46ca-48c0-b483-15ce433d4490"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Edit"",
+                    ""type"": ""Button"",
+                    ""id"": ""244c668a-5620-4038-843a-ebd7a20aff3e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd7fdd0d-eb3e-4655-8f39-72b6a7bd2387"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Validate"",
+                    ""type"": ""Button"",
+                    ""id"": ""000cbcc1-9421-48c3-9e9d-a41e36884275"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""dce8e3d8-1861-4f82-affb-aeb7414d88a1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""958fda78-402b-4f97-8957-cb97d42eac4e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""729e784b-3707-4435-ba93-f08785daa3af"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Destroy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc4c9fb7-7b2a-4eef-881c-6d67bdca4426"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Edit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cda5c6a-dc47-4a0e-bf65-8e531d338ebe"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3afabb0-5081-46ab-bcc6-5e4453d00d55"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c38f0dd-fa28-487f-89dd-ae8752d1fdbd"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1189,6 +1317,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Inventory_Num8 = m_Inventory.FindAction("Num8", throwIfNotFound: true);
         m_Inventory_Num9 = m_Inventory.FindAction("Num9", throwIfNotFound: true);
         m_Inventory_DropItem = m_Inventory.FindAction("DropItem", throwIfNotFound: true);
+        // Build
+        m_Build = asset.FindActionMap("Build", throwIfNotFound: true);
+        m_Build_Place = m_Build.FindAction("Place", throwIfNotFound: true);
+        m_Build_Destroy = m_Build.FindAction("Destroy", throwIfNotFound: true);
+        m_Build_Edit = m_Build.FindAction("Edit", throwIfNotFound: true);
+        m_Build_Cancel = m_Build.FindAction("Cancel", throwIfNotFound: true);
+        m_Build_Validate = m_Build.FindAction("Validate", throwIfNotFound: true);
+        m_Build_Rotate = m_Build.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1560,6 +1696,79 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public InventoryActions @Inventory => new InventoryActions(this);
+
+    // Build
+    private readonly InputActionMap m_Build;
+    private IBuildActions m_BuildActionsCallbackInterface;
+    private readonly InputAction m_Build_Place;
+    private readonly InputAction m_Build_Destroy;
+    private readonly InputAction m_Build_Edit;
+    private readonly InputAction m_Build_Cancel;
+    private readonly InputAction m_Build_Validate;
+    private readonly InputAction m_Build_Rotate;
+    public struct BuildActions
+    {
+        private @PlayerInput m_Wrapper;
+        public BuildActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Place => m_Wrapper.m_Build_Place;
+        public InputAction @Destroy => m_Wrapper.m_Build_Destroy;
+        public InputAction @Edit => m_Wrapper.m_Build_Edit;
+        public InputAction @Cancel => m_Wrapper.m_Build_Cancel;
+        public InputAction @Validate => m_Wrapper.m_Build_Validate;
+        public InputAction @Rotate => m_Wrapper.m_Build_Rotate;
+        public InputActionMap Get() { return m_Wrapper.m_Build; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BuildActions set) { return set.Get(); }
+        public void SetCallbacks(IBuildActions instance)
+        {
+            if (m_Wrapper.m_BuildActionsCallbackInterface != null)
+            {
+                @Place.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnPlace;
+                @Place.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnPlace;
+                @Place.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnPlace;
+                @Destroy.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnDestroy;
+                @Destroy.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnDestroy;
+                @Destroy.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnDestroy;
+                @Edit.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnEdit;
+                @Edit.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnEdit;
+                @Edit.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnEdit;
+                @Cancel.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnCancel;
+                @Validate.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnValidate;
+                @Validate.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnValidate;
+                @Validate.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnValidate;
+                @Rotate.started -= m_Wrapper.m_BuildActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_BuildActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_BuildActionsCallbackInterface.OnRotate;
+            }
+            m_Wrapper.m_BuildActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Place.started += instance.OnPlace;
+                @Place.performed += instance.OnPlace;
+                @Place.canceled += instance.OnPlace;
+                @Destroy.started += instance.OnDestroy;
+                @Destroy.performed += instance.OnDestroy;
+                @Destroy.canceled += instance.OnDestroy;
+                @Edit.started += instance.OnEdit;
+                @Edit.performed += instance.OnEdit;
+                @Edit.canceled += instance.OnEdit;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
+                @Validate.started += instance.OnValidate;
+                @Validate.performed += instance.OnValidate;
+                @Validate.canceled += instance.OnValidate;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
+            }
+        }
+    }
+    public BuildActions @Build => new BuildActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1643,5 +1852,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnNum8(InputAction.CallbackContext context);
         void OnNum9(InputAction.CallbackContext context);
         void OnDropItem(InputAction.CallbackContext context);
+    }
+    public interface IBuildActions
+    {
+        void OnPlace(InputAction.CallbackContext context);
+        void OnDestroy(InputAction.CallbackContext context);
+        void OnEdit(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
+        void OnValidate(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }
