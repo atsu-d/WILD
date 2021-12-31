@@ -51,7 +51,7 @@ public class Demo_UI_AndroidControls : MonoBehaviour
         RotateButton.onClick.AddListener(() =>
         {
             if (BuilderBehaviour.Instance.SelectedPiece != null)
-                BuilderBehaviour.Instance.RotatePreview(BuilderBehaviour.Instance.SelectedPiece.RotationAxis);
+                BuilderBehaviour.Instance.RotatePreview(BuilderBehaviour.Instance.RotationIncrement);
         });
 
         RightButton.onClick.AddListener(() =>

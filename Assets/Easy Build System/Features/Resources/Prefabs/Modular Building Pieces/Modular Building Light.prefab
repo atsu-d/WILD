@@ -61,7 +61,7 @@ MonoBehaviour:
   RotateAccodingSurface: 1
   RotateAccordingSlope: 0
   RotateAccordingSlopeAngleLimition: 360
-  RotationAxis: {x: 0, y: 90, z: 0}
+  RotationIncrement: {fileID: 11400000, guid: 058978347fadb8441915c18886623607, type: 2}
   PreviewClampPosition: 0
   PreviewClampMinPosition: {x: 0, y: 0, z: 0}
   PreviewClampMaxPosition: {x: 0, y: 0, z: 0}
@@ -241,6 +241,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1 &7815118967932666607
@@ -300,6 +301,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -324,6 +326,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7815118967932666608
 MeshCollider:
   m_ObjectHideFlags: 0

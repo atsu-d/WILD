@@ -46,6 +46,8 @@ namespace EasyBuildSystem.Features.Scripts.Core.Base.Builder
         public DetectionType SocketDetectionType = DetectionType.Overlap;
         public float SocketDetectionMaxAngles = 35f;
 
+        public Vector3 RotationIncrement = Vector3.up * 15f;
+
         public virtual Ray GetRay
         {
             get
@@ -906,8 +908,8 @@ namespace EasyBuildSystem.Features.Scripts.Core.Base.Builder
         /// </summary>
         public void ChangeMode(BuildMode mode)
         {
-            if (CurrentMode == mode) 
-                return; 
+            if (CurrentMode == mode)
+                return;
 
             if (CurrentMode == BuildMode.Placement) ClearPreview();
             if (CurrentMode == BuildMode.Destruction) ClearRemovePreview();

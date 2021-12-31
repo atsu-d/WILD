@@ -260,6 +260,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -284,6 +285,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &5613054035292879114
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -365,7 +367,7 @@ MonoBehaviour:
   RotateAccodingSurface: 0
   RotateAccordingSlope: 1
   RotateAccordingSlopeAngleLimition: 45
-  RotationAxis: {x: 0, y: 90, z: 0}
+  RotationIncrement: {fileID: 11400000, guid: 058978347fadb8441915c18886623607, type: 2}
   PreviewClampPosition: 1
   PreviewClampMinPosition: {x: -10000, y: 0, z: -10000}
   PreviewClampMaxPosition: {x: 10000, y: 0, z: 10000}

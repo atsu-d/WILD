@@ -44,7 +44,6 @@ namespace EasyBuildSystem.Features.Scripts.Core.Base.Piece
         public bool RotateAccodingSurface = false;
         public bool RotateAccordingSlope;
         public float RotateAccordingSlopeAngleLimition;
-        public Vector3 RotationAxis = Vector3.up * 90;
 
         public bool PreviewClampPosition = false;
         public Vector3 PreviewClampMinPosition;

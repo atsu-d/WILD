@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Variable<T> : ScriptableObject
 {
-    public T value { get; private set; }
+    public T value;
 
     public void Set(T _value)
     {

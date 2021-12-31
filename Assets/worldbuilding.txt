@@ -44,6 +44,7 @@ Aero
 -- Frontier
 -- Interstellar
 -- Kinetics
+-- Transport
 Fauci
 Greta Thunberg
 Vic Barrett
@@ -62,7 +63,19 @@ Vandana Shiva
 Ridges
 Hubert
 Webb
+Limmi
+Iridescent Man
 
+TRIBE 
+NOMAD 
+MODULAR 
+QUAD N-GON
+STRAY
+OMNI
+LOCUST 
+Moxie 
+
+OMNI Frontier
 Vardham Frontier
 Hubert-Ridges Interstellar
 Vardham-Bowe Interstellar

@@ -1,7 +1,38 @@
 I. ITEMS
     A. Food
     B. Tools
+        i. build tool / deconstruction tool / scanner tool
+        ii. drone for spotting
+        iii. trail cameras
+        iv. tranq traps
+    C. Overhaul interaction system.
+        i. OnUse ability for tools
+            a. distinguish it with interaction behaviours. 
 
 II. BUILD
+    A. Input "modes" to distinguish when to use the interactable controls vs. build controls.
+    B. Make floors behave like foundations.
+    C. Other pieces
+        i. Supports
+        ii. corner pieces
+        iii. modular window pieces
+        iv. ceiling pieces
+        v. stairs
+        vi. "Workbench" alternative for creating sanctuaries. 
 
 III. ANIMALS
+    A. AI
+        i. Wild behavior
+        ii. Tamed behavior
+        iii. Companion behavior
+    B. Hunger/thirst/happiness 
+
+IV. GAME DESIGN
+    A. Game loop: 
+        i. INSPECT - Learn about animals' habitat needs & diet.
+        ii. COLLECT - Resources to create a habitat and food to sustain the animals.
+        iii. TAME.
+        iv. RAISE - Keep animal happy for ++Tameness. 
+        v. FARM - get "essences" from animal for crafting(?), and offspring (release, keep).
+    B. Narrative
+        i. Strong themes about conservation, global warming.

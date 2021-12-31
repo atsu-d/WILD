@@ -46,6 +46,7 @@ namespace ItemSystem
         {
             holdTimer = 0f;
             isInteracting = false;
+            activeHotbar.value = 0; //fix later so player will hold same item on game open as game end
         }
 
         private void Update()

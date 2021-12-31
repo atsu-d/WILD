@@ -386,9 +386,9 @@ namespace EasyBuildSystem.Features.Scripts.Core.Base.Builder
             {
                 #region Rotate
                 if (_scrollDelta > 0)
-                    BuilderBehaviour.Instance.RotatePreview(BuilderBehaviour.Instance.SelectedPiece.RotationAxis);
+                    BuilderBehaviour.Instance.RotatePreview(BuilderBehaviour.Instance.RotationIncrement);
                 else if (_scrollDelta < 0)
-                    BuilderBehaviour.Instance.RotatePreview(-BuilderBehaviour.Instance.SelectedPiece.RotationAxis);
+                    BuilderBehaviour.Instance.RotatePreview(-BuilderBehaviour.Instance.RotationIncrement);
                 #endregion
             }
             else
