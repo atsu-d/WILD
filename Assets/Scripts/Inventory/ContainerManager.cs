@@ -12,7 +12,7 @@ public enum ItemType
 }
 namespace ItemSystem
 {
-    public class ContainerSystem : MonoBehaviour
+    public class ContainerManager: MonoBehaviour
     {
         protected Dictionary<ItemData, InventoryItem> itemDictionary;
         [SerializeField] public List<InventoryItem> inventory { get; private set; }

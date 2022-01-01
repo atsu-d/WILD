@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ItemSystem
 {
-    public class BehaviorStateManager : MonoBehaviour
+    public class ItemManager : MonoBehaviour
     {
         [SerializeField] private ItemData itemData;
         public ItemData Data => itemData;

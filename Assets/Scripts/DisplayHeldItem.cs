@@ -5,7 +5,7 @@ using ItemSystem;
 public class DisplayHeldItem : MonoBehaviour, IEventListener
 {
     public ManagerReference managers;
-    private BehaviorStateManager activeItem;
+    private ItemManager activeItem;
     [SerializeField] private IntVariable activeHotbar;
 
     private void SetActiveInteractable()
@@ -18,7 +18,7 @@ public class DisplayHeldItem : MonoBehaviour, IEventListener
         else
         {
             ItemData _newItem = managers.InventoryManager.inventory[activeHotbar.value - 1].data;
-            activeItem = Instantiate(_newItem.Prefab, transform).GetComponent<BehaviorStateManager>();
+            activeItem = Instantiate(_newItem.Prefab, transform).GetComponent<ItemManager>();
             activeItem.SetNonInteractive();
         }
     }

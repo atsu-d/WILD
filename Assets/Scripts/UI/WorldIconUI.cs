@@ -16,7 +16,7 @@ namespace ItemSystem
 
         private ImageState currentState;
 
-        private BehaviorStateManager item;
+        private ItemManager item;
         [SerializeField] private AnimationCurve fadeCurve;
 
         [SerializeField] private Image idleImage;
@@ -32,7 +32,7 @@ namespace ItemSystem
 
         private void Awake()
         {
-            item = GetComponentInParent<BehaviorStateManager>();
+            item = GetComponentInParent<ItemManager>();
         }
 
         private void Start()
