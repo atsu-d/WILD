@@ -15,6 +15,14 @@ I. ITEMS
 
 II. BUILD
     A. Input "modes" to distinguish when to use the interactable controls vs. build controls.
+        I. Multi-Controllers
+            a. Primary controllers - movement controls
+                i. The character mover itself.
+                ii. Tools (drone, trail cam)
+            b. Secondary controllers - Works alongside the primary movement controller
+                i. Interaction controller.
+                ii. Inventory controller
+                iii. Build controller
     B. Make floors behave like foundations.
     C. Other pieces
         i. Supports
