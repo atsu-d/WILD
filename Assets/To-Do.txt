@@ -3,8 +3,12 @@ I. ITEMS
     B. Tools
         i. build tool / deconstruction tool / scanner tool
         ii. drone for spotting
-        iii. trail cameras
-        iv. tranq traps
+        iii. binoculars
+        iv. trail cameras
+        v. trail markers
+        vi. darts
+            a. Spotter darts - shows outline of animals in AOE. Pulses.
+            b. Tracker darts - concurrent for x Hours. "pings" only on map and minimap (no outline), but tracks long term across map.
     C. Overhaul interaction system.
         i. OnUse ability for tools
             a. distinguish it with interaction behaviours. 
