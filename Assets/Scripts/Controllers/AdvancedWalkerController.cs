@@ -8,13 +8,11 @@ namespace PlayerController
 	//Advanced walker controller script;
 	//This controller is used as a basis for other controller types ('SidescrollerController');
 	//Custom movement input can be implemented by creating a new script that inherits 'AdvancedWalkerController' and overriding the 'CalculateMovementDirection' function;
-	public class AdvancedWalkerController : Controller {
+	public class AdvancedWalkerController : Controller, IController {
 		public static Transform PlayerTR { get; private set; }
-
+		[SerializeField] private MasterController master;
 		public PlayerInput playerInput;
-		private InputAction moveInput;
-		private InputAction jumpInput;
-		private InputAction sprintInput;
+		private InputAction moveInput, jumpInput, sprintInput;
 
 		//References to attached components;
 		protected Transform tr;
@@ -101,6 +99,8 @@ namespace PlayerController
 		protected virtual void Setup()
 		{
 			movementSpeed = baseMovementSpeed;
+
+			if (master) master.TryEnterPrimary(this);
 		}
 
 		void Update()
@@ -608,7 +608,40 @@ namespace PlayerController
 				momentum = _newMomentum;
 		}
 
-        private void OnEnable()
+        #region IController Methods
+		public bool CanEnter()
+        {
+			return true;
+        }
+
+		public void OnEnter()
+		{
+			EnableInput();
+		}
+
+		public bool CanExit()
+		{
+			return true;
+		}
+
+		public void OnExit()
+        {
+			DisableInput();
+        }
+
+		#endregion
+
+		private void OnEnable()
+        {
+			//EnableInput();
+		}
+
+		private void OnDisable()
+		{
+			DisableInput();
+		}
+
+		private void EnableInput()
         {
 			moveInput = playerInput.Player.Move;
 			moveInput.Enable();
@@ -621,8 +654,8 @@ namespace PlayerController
 			jumpInput.performed += HandleJumping;
 		}
 
-		private void OnDisable()
-		{
+		private void DisableInput()
+        {
 			moveInput.Disable();
 			sprintInput.Disable();
 			jumpInput.Disable();

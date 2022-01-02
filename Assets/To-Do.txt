@@ -22,8 +22,7 @@ II. BUILD
                 i. The character mover itself.
                 ii. Tools (drone, trail cam)
             b. Secondary controllers - Works alongside the primary movement controller
-                i. Interaction controller.
-                ii. Inventory controller
+                i. Interaction controller / Inventory controller -- combine them
                 iii. Build controller
     B. Make floors behave like foundations.
     C. Other pieces

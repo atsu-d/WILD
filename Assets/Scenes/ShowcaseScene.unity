@@ -2456,7 +2456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1273852644323278, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4122625377137146, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_RootOrder
@@ -2506,6 +2506,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 87
       objectReference: {fileID: 0}
+    - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: master
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d1e7b91c2546af4fb694d2cf8b67ce4, type: 2}
     - target: {fileID: 7298452548863352548, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 1
@@ -14746,7 +14750,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -14854,7 +14858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2014143433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14987,7 +14991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5a994cc2ea889429eae56506428e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0.4
+  mass: 0.1
   lerpSpeed: 1.2
   lookThreshold: 0.8
   inputMultiplier: 0.0033
