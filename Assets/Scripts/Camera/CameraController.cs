@@ -7,10 +7,11 @@ namespace PlayerController
 {
 	//This script rotates a gameobject based on user input.
 	//Rotation around the x-axis (vertical) can be clamped/limited by setting 'upperVerticalLimit' and 'lowerVerticalLimit'.
+	[RequireComponent(typeof(PlayerInput))]
 	public class CameraController : MonoBehaviour {
 
 		public PlayerInput cameraInput;
-		private InputAction lookInput;
+		private Vector2 lookInput;
 
 		//Use this value to fine-tune mouse movement;
 		//All mouse input will be multiplied by this value;
@@ -91,8 +92,8 @@ namespace PlayerController
 		protected virtual void HandleCameraRotation()
 		{
 			//Get input values;
-			float _inputHorizontal = GetLookAxis(lookInput.ReadValue<Vector2>().x, invertHorizontalInput);
-			float _inputVertical = GetLookAxis(-lookInput.ReadValue<Vector2>().y, invertVerticalInput);
+			float _inputHorizontal = GetLookAxis(lookInput.x, invertHorizontalInput);
+			float _inputVertical = GetLookAxis(-lookInput.y, invertVerticalInput);
 		
 			RotateCamera(_inputHorizontal, _inputVertical);
 		}
@@ -267,15 +268,10 @@ namespace PlayerController
 			return _input;
 		}
 
-		private void OnEnable()
-		{
-			lookInput = cameraInput.Camera.Look;
-			lookInput.Enable();
-		}
+		private void OnLook(InputValue _value)
+        {
+			lookInput = _value.Get<Vector2>();
 
-		private void OnDisable()
-		{
-			lookInput.Disable();
 		}
 	}
 }

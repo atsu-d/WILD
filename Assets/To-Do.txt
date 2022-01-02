@@ -3,6 +3,8 @@ I. ITEMS
     B. Tools
         i. build tool / deconstruction tool / scanner tool
         ii. drone for spotting
+            ----a. Locomotion
+            b. Spotting
         iii. binoculars
         iv. trail cameras
         v. trail markers
