@@ -7,7 +7,6 @@ namespace PlayerController
 {
 	//This script rotates a gameobject based on user input.
 	//Rotation around the x-axis (vertical) can be clamped/limited by setting 'upperVerticalLimit' and 'lowerVerticalLimit'.
-	[RequireComponent(typeof(PlayerInput))]
 	public class CameraController : MonoBehaviour {
 
 		public PlayerInput cameraInput;
@@ -271,7 +270,6 @@ namespace PlayerController
 		private void OnLook(InputValue _value)
         {
 			lookInput = _value.Get<Vector2>();
-
 		}
 	}
 }

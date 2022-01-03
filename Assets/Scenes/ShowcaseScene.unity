@@ -2446,17 +2446,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 889244266, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: 32800277-bcef-475e-8809-e8c73f784a2c
-      objectReference: {fileID: 0}
     - target: {fileID: 1273852644323278, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_Name
       value: FirstPersonWalker_Audio
-      objectReference: {fileID: 0}
-    - target: {fileID: 1273852644323278, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4122625377137146, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_RootOrder
@@ -2502,22 +2494,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20395501606822184, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: field of view
-      value: 87
-      objectReference: {fileID: 0}
-    - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: master
-      value: 
-      objectReference: {fileID: 11400000, guid: 2d1e7b91c2546af4fb694d2cf8b67ce4, type: 2}
-    - target: {fileID: 7298452548863352548, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298452548863352548, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: m_Cameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 668782846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
 --- !u!4 &349422041 stripped
@@ -5169,11 +5145,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4581715721912470, guid: 4dc2c143bf9ffbb4b8178ab20f930ca6, type: 3}
   m_PrefabInstance: {fileID: 662652954}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &668782846 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 223641778, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-  m_PrefabInstance: {fileID: 349325492}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &669979909 stripped
 Transform:
@@ -14858,7 +14829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2014143433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14991,10 +14962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5a994cc2ea889429eae56506428e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0.1
-  lerpSpeed: 1.2
-  lookThreshold: 0.8
-  inputMultiplier: 0.0033
+  mass: 0.38
+  lerpSpeed: 1.255
+  lookThreshold: 1.2
+  inputMultiplier: 0.0042
   upperVerticalLimit: 60
   lowerVerticalLimit: 60
   verticalSmooth: 3
@@ -15251,41 +15222,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7d2c2a8df6d8c9243a9b2118f42a5041, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d195d2e61b2b96740b9fee3327219a1f, type: 3}
---- !u!1 &2040042144 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1964354500963162, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-  m_PrefabInstance: {fileID: 349325492}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2040042147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040042144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: a143dd7d85cec7747a6c091df79ae485, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Camera
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &2042427650
 PrefabInstance:
   m_ObjectHideFlags: 0

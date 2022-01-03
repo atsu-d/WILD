@@ -12,7 +12,8 @@ namespace PlayerController
 		public static Transform PlayerTR { get; private set; }
 		[SerializeField] private MasterController master;
 		public PlayerInput playerInput;
-		private InputAction moveInput, jumpInput, sprintInput;
+		private Vector2 moveInput;
+		private bool jumpInput, sprintInput = false;
 
 		//References to attached components;
 		protected Transform tr;
@@ -112,7 +113,7 @@ namespace PlayerController
 		float HandleSpeed()
         {
 			float _movementSpeed = movementSpeed;
-			bool _sprintKeyDown = sprintInput.ReadValue<float>() > 0 && currentControllerState == ControllerState.Grounded;
+			bool _sprintKeyDown = sprintInput && currentControllerState == ControllerState.Grounded;
 
 			sprintTime += _sprintKeyDown ? Time.deltaTime * timeMult : -Time.deltaTime * timeMult;
 			sprintTime = Mathf.Clamp(sprintTime, 0, 1);
@@ -178,15 +179,15 @@ namespace PlayerController
 			//If no camera transform has been assigned, use the character's transform axes to calculate the movement direction;
 			if(cameraTransform == null)
 			{
-				_velocity += tr.right * moveInput.ReadValue<Vector2>().x; //characterInput.GetHorizontalMovementInput();
-				_velocity += tr.forward * moveInput.ReadValue<Vector2>().y;
+				_velocity += tr.right * moveInput.x; //characterInput.GetHorizontalMovementInput();
+				_velocity += tr.forward * moveInput.y;
 			}
 			else
 			{
 				//If a camera transform has been assigned, use the assigned transform's axes for movement direction;
 				//Project movement direction so movement stays parallel to the ground;
-				_velocity += Vector3.ProjectOnPlane(cameraTransform.right, tr.up).normalized * moveInput.ReadValue<Vector2>().x;
-				_velocity += Vector3.ProjectOnPlane(cameraTransform.forward, tr.up).normalized * moveInput.ReadValue<Vector2>().y;
+				_velocity += Vector3.ProjectOnPlane(cameraTransform.right, tr.up).normalized * moveInput.x;
+				_velocity += Vector3.ProjectOnPlane(cameraTransform.forward, tr.up).normalized * moveInput.y;
 			}
 
 			//If necessary, clamp movement vector to magnitude of 1f;
@@ -307,7 +308,7 @@ namespace PlayerController
 					return ControllerState.Rising;
 
 				//Check if jump key was let go;
-				if(!jumpInput.triggered)
+				if(!jumpInput)
 					return ControllerState.Rising;
 
 				//If a ceiling detector has been attached to this gameobject, check for ceiling hits;
@@ -326,7 +327,7 @@ namespace PlayerController
 		}
 
 		//Check if player has initiated a jump;
-		void HandleJumping(InputAction.CallbackContext context)
+		void HandleJumping()
         {
             if (currentControllerState == ControllerState.Grounded)
             {
@@ -335,7 +336,6 @@ namespace PlayerController
 				OnJumpStart();
 
 				currentControllerState = ControllerState.Jumping;
-
 			}
         }
 
@@ -456,8 +456,8 @@ namespace PlayerController
 			currentJumpStartTime = Time.time;
 
             //Call event;
-            if (OnJump != null)
-				OnJump(momentum);
+            if (OnJumped != null)
+				OnJumped(momentum);
 
 			if(useLocalMomentum)
 				momentum = tr.worldToLocalMatrix * momentum;
@@ -616,7 +616,6 @@ namespace PlayerController
 
 		public void OnEnter()
 		{
-			EnableInput();
 		}
 
 		public bool CanExit()
@@ -626,39 +625,23 @@ namespace PlayerController
 
 		public void OnExit()
         {
-			DisableInput();
         }
+        #endregion
 
-		#endregion
-
-		private void OnEnable()
+        private void OnSprint(InputValue _value)
         {
-			//EnableInput();
+			sprintInput = _value.Get<float>() > 0;
 		}
 
-		private void OnDisable()
+		private void OnMove(InputValue _value)
+        {
+			moveInput = _value.Get<Vector2>();
+		}
+
+		private void OnJump(InputValue _value)
 		{
-			DisableInput();
-		}
-
-		private void EnableInput()
-        {
-			moveInput = playerInput.Player.Move;
-			moveInput.Enable();
-
-			sprintInput = playerInput.Player.Sprint;
-			sprintInput.Enable();
-
-			jumpInput = playerInput.Player.Jump;
-			jumpInput.Enable();
-			jumpInput.performed += HandleJumping;
-		}
-
-		private void DisableInput()
-        {
-			moveInput.Disable();
-			sprintInput.Disable();
-			jumpInput.Disable();
+			jumpInput = _value.isPressed;
+			HandleJumping();
 		}
 	}
 }

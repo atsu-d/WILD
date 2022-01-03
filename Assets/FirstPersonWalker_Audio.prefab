@@ -200,14 +200,14 @@ GameObject:
   - component: {fileID: 114453171939595980}
   - component: {fileID: 889244259}
   - component: {fileID: 889244265}
-  - component: {fileID: 889244266}
+  - component: {fileID: 7184730965858000212}
   m_Layer: 0
   m_Name: FirstPersonWalker_Audio
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4122625377137146
 Transform:
   m_ObjectHideFlags: 0
@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5e44db14072ea4c964da3b192181c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 11400000, guid: 2d1e7b91c2546af4fb694d2cf8b67ce4, type: 2}
   sprintSpeed: 4
   baseMovementSpeed: 5.2
   timeMult: 1.5
@@ -490,13 +491,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  cam: {fileID: 20395501606822184}
   raycastDistance: 3
   raycastSphereRadius: 0.25
   interactableLayer:
     serializedVersion: 2
     m_Bits: 264
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
+  cam: {fileID: 20395501606822184}
   inventoryTr: {fileID: 1558746140}
 --- !u!114 &889244265
 MonoBehaviour:
@@ -514,7 +515,7 @@ MonoBehaviour:
   capacity: 0
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
---- !u!114 &889244266
+--- !u!114 &7184730965858000212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -527,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 9355561d4965ca949877eccdc8669531, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -606,7 +607,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 90
+  field of view: 87
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -714,6 +715,7 @@ MonoBehaviour:
   RaycastOffsetPosition: {x: 0, y: 0, z: 1}
   SocketDetectionType: 0
   SocketDetectionMaxAngles: 35
+  RotationIncrement: {x: 0, y: 15, z: 0}
   PreviewMovementType: 0
   PreviewMovementOnlyAllowed: 0
   PreviewGridSize: 1

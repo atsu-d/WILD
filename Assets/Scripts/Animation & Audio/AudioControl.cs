@@ -50,7 +50,7 @@ namespace PlayerController
 
 			//Connecting events to controller events;
 			controller.OnLand += OnLand;
-			controller.OnJump += OnJump;
+			controller.OnJumped += OnJump;
 
 			if(!animator)
 				useAnimationBasedFootsteps = false;

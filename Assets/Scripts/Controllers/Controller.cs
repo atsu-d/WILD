@@ -15,7 +15,7 @@ namespace PlayerController
 
 		//Events;
 		public delegate void VectorEvent(Vector3 v);
-		public VectorEvent OnJump;
+		public VectorEvent OnJumped;
 		public VectorEvent OnLand;
 
 	}

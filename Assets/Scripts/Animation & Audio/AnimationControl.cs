@@ -36,7 +36,7 @@ namespace PlayerController
 		{
 			//Connect events to controller events;
 			controller.OnLand += OnLand;
-			controller.OnJump += OnJump;
+			controller.OnJumped += OnJump;
 		}
 
 		//OnDisable;
@@ -44,7 +44,7 @@ namespace PlayerController
 		{
 			//Disconnect events to prevent calls to disabled gameobjects;
 			controller.OnLand -= OnLand;
-			controller.OnJump -= OnJump;
+			controller.OnJumped -= OnJump;
 		}
 		
 		//Update;

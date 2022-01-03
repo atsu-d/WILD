@@ -13,7 +13,7 @@ public class DroneMover : MonoBehaviour
     protected float initialDrag, initialAngularDrag;
 
     [Header("Control Properties")]
-    private float minMaxPitch = 30f, minMaxRoll = 30f;
+    private float minMaxPitch = 30f, minMaxRoll = 40f;
     private float pitch, roll, yaw;
     [SerializeField] private float lerpSpeed = 1.2f;
 
@@ -35,6 +35,7 @@ public class DroneMover : MonoBehaviour
     [Range(1f, 25f)]
     public float horizontalSmooth = 2.5f;
 
+    private Vector3 saveVelocity;
 
     private void Awake()
     {
@@ -58,6 +59,11 @@ public class DroneMover : MonoBehaviour
         {
             _motor.OnInitializeMotor();
         }
+    }
+
+    private void Update()
+    {
+        saveVelocity = rb.velocity;
     }
 
     private void FixedUpdate()
@@ -143,5 +149,12 @@ public class DroneMover : MonoBehaviour
         _input *= inputMultiplier;
 
         return _input;
+    }
+
+    private void OnCollisionEnter(Collision _collision)
+    {
+        float _reboundForce = saveVelocity.magnitude;
+
+        rb.AddForce(_collision.contacts[0].normal * _reboundForce);
     }
 }
