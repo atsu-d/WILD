@@ -5,28 +5,28 @@ using ItemSystem;
 public class DisplayHeldItem : MonoBehaviour, IEventListener
 {
     public ManagerReference managers;
-    private ItemManager activeItem;
+    public InteractionData interactionData;
+
     [SerializeField] private IntVariable activeHotbar;
 
     private void SetActiveInteractable()
     {
         if (activeHotbar.value > managers.InventoryManager.inventory.Count) return;
 
-        if (activeItem != null) DestroyDisplay();
+        if (interactionData.heldItem != null) DestroyDisplay();
 
-        if (activeHotbar.value == 0) { activeItem = null; }
+        if (activeHotbar.value == 0) { interactionData.ClearHeldItem(); }
         else
         {
-            ItemData _newItem = managers.InventoryManager.inventory[activeHotbar.value - 1].data;
-            activeItem = Instantiate(_newItem.Prefab, transform).GetComponent<ItemManager>();
-            activeItem.SetNonInteractive();
+            interactionData.SetHeldItem(Instantiate(interactionData.activeItem.Prefab, transform).GetComponent<ItemManager>());
+            interactionData.heldItem.SetNonInteractive();
         }
     }
 
     private void DestroyDisplay()
     {
-        Destroy(activeItem.gameObject);
-        activeItem = null;
+        Destroy(interactionData.heldItem.gameObject);
+        interactionData.ClearHeldItem();
     }
 
     public void OnEventCalled()

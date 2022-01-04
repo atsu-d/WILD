@@ -2446,9 +2446,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 889244259, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: interactionData
+      value: 
+      objectReference: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+    - target: {fileID: 889244265, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: interactionData
+      value: 
+      objectReference: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+    - target: {fileID: 1558746141, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: interactionData
+      value: 
+      objectReference: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
     - target: {fileID: 1273852644323278, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_Name
       value: FirstPersonWalker_Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273852644323278, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4122625377137146, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_RootOrder
@@ -4668,7 +4684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &590250972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12147,7 +12163,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 15, y: 0}
-  m_SizeDelta: {x: 10, y: 50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1748525916
 MonoBehaviour:
@@ -14829,7 +14845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2014143433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15926,10 +15942,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle
       objectReference: {fileID: 0}
-    - target: {fileID: 8394652675382474293, guid: 77783825a5ef61a40affd98ddc9a8788, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9165982534365097103, guid: 77783825a5ef61a40affd98ddc9a8788, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16031,10 +16043,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 788901483628620767, guid: c3d0ec621a60d9e4c8d5d3f101385e1c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d0ec621a60d9e4c8d5d3f101385e1c, type: 3}
 --- !u!1001 &8193177411510698384
@@ -16091,10 +16099,6 @@ PrefabInstance:
     - target: {fileID: 7496149992758940979, guid: 46d8142542d4b2c408e2f617a5c3b8a8, type: 3}
       propertyPath: m_Name
       value: Skull
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496149992758940979, guid: 46d8142542d4b2c408e2f617a5c3b8a8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46d8142542d4b2c408e2f617a5c3b8a8, type: 3}

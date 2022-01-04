@@ -9,44 +9,28 @@ namespace ItemSystem
         [SerializeField] private ItemData itemData;
         public ItemData Data => itemData;
 
-        [SerializeField] private ItemBehavior primaryTapBehavior; // E Key
-        [SerializeField] private HoldBehavior holdBehavior;
-        [SerializeField] private ItemBehavior secondaryTapBehavior; //R Key
+        public UseBehavior OnUse; // E Key
+        public DropBehavior OnDrop; //R Key
+
+        public HoldBehavior OnHoldUse; //Hold E
+        public PickUpBehavior OnPickUp; //Hold E
+
 
         protected int nonInteractableLayer = 30;
         private Collider col;
-        public bool HoldInteract => holdBehavior != null;
-        public float HoldDuration => holdBehavior.holdDuration;
+        public Rigidbody rb { get; private set; }
 
         [SerializeField] private WorldIconUI iconUI;
 
         private void Awake()
         {
-            if (primaryTapBehavior != null) primaryTapBehavior.Initialize(itemData);
-            if (holdBehavior != null) holdBehavior.Initialize(itemData);
-            if (secondaryTapBehavior != null) secondaryTapBehavior.Initialize(itemData);
             col = GetComponent<Collider>();
+            rb = GetComponent<Rigidbody>();
         }
 
         private void Start()
         {
             if (iconUI == null) GetComponentInChildren<WorldIconUI>();
-        }
-
-        public void OnInteract(InteractionType _input)
-        {
-            switch (_input)
-            {
-                case InteractionType.Tap:
-                    primaryTapBehavior.OnInteract();
-                    break;
-                case InteractionType.Hold:
-                    holdBehavior.OnInteract();
-                    break;
-                case InteractionType.Drop:
-                    secondaryTapBehavior.OnInteract();
-                    break;
-            }
         }
 
         private void ZeroTransforms()
@@ -74,9 +58,4 @@ namespace ItemSystem
             iconUI.SwapImage(_isHold);
         }
     }
-}
-
-public enum InteractionType
-{
-    Tap, Hold, Drop
 }

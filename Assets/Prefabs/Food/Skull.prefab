@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
+  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -360,8 +361,6 @@ GameObject:
   - component: {fileID: 8288682439994127590}
   - component: {fileID: 4616816166861079400}
   - component: {fileID: 7085945494029961476}
-  - component: {fileID: 8570016133818993409}
-  - component: {fileID: 3798197714202965988}
   - component: {fileID: 3719752836771639335}
   m_Layer: 8
   m_Name: Skull
@@ -463,38 +462,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: f0630122f8ac0f74f95f6b76a1cb5392, type: 2}
-  primaryTapBehavior: {fileID: 0}
-  holdBehavior: {fileID: 8570016133818993409}
-  secondaryTapBehavior: {fileID: 3798197714202965988}
+  OnUse: {fileID: 0}
+  OnDrop: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
+  OnHoldUse: {fileID: 0}
+  OnPickUp: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
   iconUI: {fileID: 8887168786716838310}
---- !u!114 &8570016133818993409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7496149992758940979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8236c9de1c89546a6c60847972d399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HoldDuration: 0.5
-  managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
---- !u!114 &3798197714202965988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7496149992758940979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc53f7c4482fe748bfe0c69247ab7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerVel: {fileID: 11400000, guid: 2de8865d59c4903408fd4bb9e52547f0, type: 2}
-  removeVertical: 0
 --- !u!65 &3719752836771639335
 BoxCollider:
   m_ObjectHideFlags: 0

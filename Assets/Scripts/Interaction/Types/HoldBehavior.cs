@@ -8,9 +8,5 @@ namespace ItemSystem
     {
         [SerializeField] private float HoldDuration;
         public float holdDuration => HoldDuration;
-
-        public override void OnInteract()
-        {
-        }
     }
 }
