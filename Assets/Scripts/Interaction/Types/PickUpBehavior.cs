@@ -9,7 +9,7 @@ namespace ItemSystem
     {
         public void OnInteract(ItemData _data, GameObject _itemObject)
         {
-            managers.InventoryManager.Add(_data);
+            interactionData.playerInventory.Add(_data);
             Destroy(_itemObject);
         }
     }

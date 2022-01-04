@@ -14,7 +14,7 @@ namespace ItemSystem
 
         public void OnInteract(Rigidbody _rb, Transform _throwDir, ItemData _data)
         {
-            managers.InventoryManager.Remove(_data);
+            interactionData.playerInventory.Remove(_data);
             interactionData.ClearActiveItem();
 
             _rb.isKinematic = false;

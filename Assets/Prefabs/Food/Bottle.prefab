@@ -552,6 +552,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: f22289ba3f158f84685b0a09a6c08f5c, type: 2}
   OnUse: {fileID: 0}
   OnDrop: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
+  OnDeposit: {fileID: 11400000, guid: 30968a4ea864f2b4cbfa42c81104543c, type: 2}
   OnHoldUse: {fileID: 0}
   OnPickUp: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
   iconUI: {fileID: 8657143418268143425}

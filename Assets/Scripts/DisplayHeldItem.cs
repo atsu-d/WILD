@@ -26,7 +26,7 @@ public class DisplayHeldItem : MonoBehaviour, IEventListener
     private void DestroyDisplay()
     {
         Destroy(interactionData.heldItem.gameObject);
-        interactionData.ClearHeldItem();
+        
     }
 
     public void OnEventCalled()

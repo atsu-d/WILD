@@ -11,6 +11,7 @@ namespace ItemSystem
 
         public UseBehavior OnUse; // E Key
         public DropBehavior OnDrop; //R Key
+        public DepositBehavior OnDeposit;
 
         public HoldBehavior OnHoldUse; //Hold E
         public PickUpBehavior OnPickUp; //Hold E

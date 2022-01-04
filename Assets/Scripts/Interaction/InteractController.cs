@@ -77,8 +77,7 @@ namespace ItemSystem
                 Debug.Log(interactionData.activeItem.name + " added to " + interactionData.worldContainer.name);
                 if (OnDiscardItem != null) OnDiscardItem();
 
-                managers.InventoryManager.Remove(interactionData.activeItem);
-                interactionData.worldContainer.Add(interactionData.activeItem);
+                interactionData.heldItem.OnDeposit.OnInteract();
 
                 activeHotbar.Set(0);
             }
