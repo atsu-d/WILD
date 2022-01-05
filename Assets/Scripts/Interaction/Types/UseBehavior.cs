@@ -4,12 +4,9 @@ using UnityEngine;
 
 namespace ItemSystem
 {
-    [CreateAssetMenu(fileName = "New Use Behavior", menuName = "ItemBehavior/Use")]
-    public class UseBehavior : ItemBehavior
+    public abstract class UseBehavior : ItemBehavior
     {
-        public void OnInteract()
-        {
-
-        }
+        public abstract void OnInteract();
+        public abstract void OnUseEnd();
     }
 }

@@ -10,7 +10,7 @@ namespace PlayerController
 	//Custom movement input can be implemented by creating a new script that inherits 'AdvancedWalkerController' and overriding the 'CalculateMovementDirection' function;
 	public class AdvancedWalkerController : Controller, IController {
 		public static Transform PlayerTR { get; private set; }
-		[SerializeField] private MasterController master;
+		[SerializeField] private ManagerReference managers;
 		public PlayerInput playerInput;
 		private Vector2 moveInput;
 		private bool jumpInput, sprintInput = false;
@@ -100,8 +100,8 @@ namespace PlayerController
 		protected virtual void Setup()
 		{
 			movementSpeed = baseMovementSpeed;
-
-			if (master) master.TryEnterPrimary(this);
+			managers.InputManager.SetPlayerInput(playerInput);
+			managers.InputManager.SetActionMap(playerInput.Player);
 		}
 
 		void Update()

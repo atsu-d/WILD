@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
+  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
 --- !u!1 &1255231704453772
 GameObject:
@@ -207,7 +208,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4122625377137146
 Transform:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5e44db14072ea4c964da3b192181c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  master: {fileID: 11400000, guid: 2d1e7b91c2546af4fb694d2cf8b67ce4, type: 2}
+  managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
   sprintSpeed: 4
   baseMovementSpeed: 5.2
   timeMult: 1.5
@@ -491,6 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
+  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
   raycastDistance: 3
   raycastSphereRadius: 0.25
   interactableLayer:
@@ -514,6 +516,7 @@ MonoBehaviour:
   allowType: 2
   capacity: 0
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
+  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
 --- !u!114 &7184730965858000212
 MonoBehaviour:

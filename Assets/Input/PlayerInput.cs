@@ -1209,6 +1209,270 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Drone"",
+            ""id"": ""0de10f69-1f02-475b-a07a-3daeb8335202"",
+            ""actions"": [
+                {
+                    ""name"": ""Cyclic"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""46398230-e2d9-4a58-b806-44ab9ced5ecd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pedal"",
+                    ""type"": ""Value"",
+                    ""id"": ""24a31626-75e5-4208-a520-ad3032141f1b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Throttle"",
+                    ""type"": ""Value"",
+                    ""id"": ""01c8da9d-60ed-4890-9def-1db5bcea007c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""768d1db3-28ca-4c9b-a1f5-91ea4c8bdb10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""b27b6c49-6b95-4ba1-87eb-cdf841f2fa02"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ce6588a2-77ed-4a58-a718-8b732beed385"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""29644f6a-e03d-4df6-88a3-119fbe2af863"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2424a15f-cec1-421f-bb4b-1490f77ba749"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""003338c6-5880-4f67-9c14-51c217b793aa"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""8dbbf53a-e874-42a1-ba6e-afc1448ab206"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f1879bea-8957-4a19-b559-da0e5de848ec"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7ada535f-0500-40e5-8f89-9789cfc834db"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ae1f7b8f-6445-4e87-87e7-3754af0c5e0c"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a12415fc-3830-4c5b-91d8-e4910b58479a"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cyclic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c5256c6-17ef-49b1-b43e-c88b7eddabbb"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pedal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""618c4b2d-6ba1-413e-ba65-c1253fcb4ee3"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""action"": ""Pedal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0247a07d-624b-44e3-aefc-781b15405ce3"",
+                    ""path"": ""<Joystick>/{Hatswitch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Pedal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""85f4dbc4-30ba-4962-8f59-034a56e09233"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""ef044981-4256-44a0-932a-aa24c862a622"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""762d746b-fff3-4d37-8b26-a7b362259a6f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right Stick"",
+                    ""id"": ""f3fd7960-4d1c-4e5e-aa8b-d4c36ec78588"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""81422e24-1b18-4c84-ad82-419f9eb8f431"",
+                    ""path"": ""<XInputController>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""1ca9a230-b59e-460f-914c-f4691464e4e7"",
+                    ""path"": ""<XInputController>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e88c1806-f6e9-4b29-a6b7-701538ee5507"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1315,6 +1579,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Build_Cancel = m_Build.FindAction("Cancel", throwIfNotFound: true);
         m_Build_Validate = m_Build.FindAction("Validate", throwIfNotFound: true);
         m_Build_Rotate = m_Build.FindAction("Rotate", throwIfNotFound: true);
+        // Drone
+        m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
+        m_Drone_Cyclic = m_Drone.FindAction("Cyclic", throwIfNotFound: true);
+        m_Drone_Pedal = m_Drone.FindAction("Pedal", throwIfNotFound: true);
+        m_Drone_Throttle = m_Drone.FindAction("Throttle", throwIfNotFound: true);
+        m_Drone_Exit = m_Drone.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1734,6 +2004,63 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public BuildActions @Build => new BuildActions(this);
+
+    // Drone
+    private readonly InputActionMap m_Drone;
+    private IDroneActions m_DroneActionsCallbackInterface;
+    private readonly InputAction m_Drone_Cyclic;
+    private readonly InputAction m_Drone_Pedal;
+    private readonly InputAction m_Drone_Throttle;
+    private readonly InputAction m_Drone_Exit;
+    public struct DroneActions
+    {
+        private @PlayerInput m_Wrapper;
+        public DroneActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Cyclic => m_Wrapper.m_Drone_Cyclic;
+        public InputAction @Pedal => m_Wrapper.m_Drone_Pedal;
+        public InputAction @Throttle => m_Wrapper.m_Drone_Throttle;
+        public InputAction @Exit => m_Wrapper.m_Drone_Exit;
+        public InputActionMap Get() { return m_Wrapper.m_Drone; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DroneActions set) { return set.Get(); }
+        public void SetCallbacks(IDroneActions instance)
+        {
+            if (m_Wrapper.m_DroneActionsCallbackInterface != null)
+            {
+                @Cyclic.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnCyclic;
+                @Cyclic.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnCyclic;
+                @Cyclic.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnCyclic;
+                @Pedal.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnPedal;
+                @Pedal.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnPedal;
+                @Pedal.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnPedal;
+                @Throttle.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnThrottle;
+                @Throttle.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnThrottle;
+                @Throttle.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnThrottle;
+                @Exit.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnExit;
+            }
+            m_Wrapper.m_DroneActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Cyclic.started += instance.OnCyclic;
+                @Cyclic.performed += instance.OnCyclic;
+                @Cyclic.canceled += instance.OnCyclic;
+                @Pedal.started += instance.OnPedal;
+                @Pedal.performed += instance.OnPedal;
+                @Pedal.canceled += instance.OnPedal;
+                @Throttle.started += instance.OnThrottle;
+                @Throttle.performed += instance.OnThrottle;
+                @Throttle.canceled += instance.OnThrottle;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
+            }
+        }
+    }
+    public DroneActions @Drone => new DroneActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1823,5 +2150,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnValidate(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+    }
+    public interface IDroneActions
+    {
+        void OnCyclic(InputAction.CallbackContext context);
+        void OnPedal(InputAction.CallbackContext context);
+        void OnThrottle(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
 }

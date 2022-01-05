@@ -8,6 +8,7 @@ public class ManagerReference : ScriptableObject
 {
     public InventoryManager InventoryManager { get; private set; }
     public InteractController InteractManager { get; private set; }
+    public InputManager InputManager;
 
     public GameEvent managerEvent;
 
