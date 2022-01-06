@@ -88,15 +88,15 @@ namespace ItemSystem
         private void HandleInteraction()
         {
             ItemManager _interactable = interactionData.worldInteractable;
-            if (interactionData.worldInteractable == null) return;
-
-            _interactable.ChangeInteractUI(false);
+            //if (interactionData.worldInteractable == null) return;
+            if (_interactable)
+                _interactable.ChangeInteractUI(false);
 
             if (interactInput.ReadValue<float>() > 0)
             {
                 isInteracting = true;
 
-                if (_interactable.OnPickUp != null  && isInteracting)
+                if (_interactable && _interactable.OnPickUp != null  && isInteracting)
                 {
                     _interactable.ChangeInteractUI(true);
                     holdTimer += Time.deltaTime;
@@ -107,11 +107,22 @@ namespace ItemSystem
                     {
                         _interactable.OnPickUp.OnInteract(_interactable.Data, _interactable.gameObject);
                         holdTimer = 0f;
+                        holdPercent = 0f;
                     }
                 }
                 else
                 {
-                    if (interactionData.heldItem != null) interactionData.heldItem.OnUse.OnInteract();
+                    if (interactionData.heldItem != null)
+                    {
+                        if (OnDiscardItem != null) OnDiscardItem();
+
+                        Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
+                        ItemManager _heldItem = Instantiate(interactionData.activeItem.Prefab, _origin, Quaternion.identity).GetComponent<ItemManager>();
+                        _heldItem.OnUse.OnInteract(_heldItem.Data, _heldItem.rb);
+
+                        activeHotbar.Set(0);
+                    }
+
                     holdTimer = 0f;
                     holdPercent = 0f;
                 }

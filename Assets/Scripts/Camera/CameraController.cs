@@ -10,6 +10,7 @@ namespace PlayerController
 	public class CameraController : MonoBehaviour {
 
 		public PlayerInput cameraInput;
+		public InputManager inputManager;
 		private Vector2 lookInput;
 
 		//Use this value to fine-tune mouse movement;
@@ -269,6 +270,9 @@ namespace PlayerController
 
 		private void OnLook(InputValue _value)
         {
+			if (!inputManager.playerInputEnabled) 
+				return;
+
 			lookInput = _value.Get<Vector2>();
 		}
 	}

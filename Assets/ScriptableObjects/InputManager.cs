@@ -8,13 +8,42 @@ using UnityEngine.InputSystem;
 public class InputManager : ScriptableObject
 {
     public PlayerInput Input { get; private set; }
+    private InputActionMap playerMap;
+    private InputActionMap droneMap;
 
     public event Action<InputActionMap> OnInputChange;
+
+    public bool playerInputEnabled => Input.Player.enabled;
+    public bool droneInputEnabled => Input.Drone.enabled;
+    
+    public void Initialize(PlayerInput _input)
+    {
+        Input = _input;
+        playerMap = Input.Player;
+        droneMap = Input.Drone;
+        ActivatePlayerControls();
+    }
+
+    public void ActivatePlayerControls()
+    {
+        Input.Drone.Disable();
+        Input.Player.Enable();
+
+        Debug.Log("Player: " + Input.Player.enabled + " / Drone: " + Input.Drone.enabled);
+    }
+
+    public void ActivateDroneControls()
+    {
+        Input.Player.Disable();
+        Input.Drone.Enable();
+        Debug.Log("Player: " + Input.Player.enabled + " / Drone: " + Input.Drone.enabled);
+    }
+
+
     public void SetActionMap(InputActionMap _actionMap)
     {
         if (_actionMap.enabled)
             return;
-
 
         Input.Disable();
         if (OnInputChange != null) 
@@ -22,10 +51,5 @@ public class InputManager : ScriptableObject
         _actionMap.Enable();
 
         Debug.Log("Enabled");
-    }
-
-    public void SetPlayerInput(PlayerInput _input)
-    {
-        Input = _input;
     }
 }

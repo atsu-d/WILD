@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ItemSystem;
 
 public class DroneController : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
-
-    [SerializeField] private Camera droneCamera;
+    public DroneUseBehavior droneObject;
+    public Camera droneCamera;
     public Camera playerCamera;
 
     private PlayerInput playerInput;
@@ -20,30 +21,59 @@ public class DroneController : MonoBehaviour
     public Vector2 Pedal { get => pedal; }
     public float Throttle { get => throttle; }
 
-    private void Start()
+    private void Awake()
     {
+        droneObject.drone = this;
+
         if (droneCamera == null)
             droneCamera = GetComponentInChildren<Camera>();
 
         if (playerCamera == null)
             playerCamera = Camera.main;
+    }
 
+    private void Start()
+    {
         playerInput = inputManager.Input;
-        EnableInput();
+    }
+
+    private void Update()
+    {
+        if (!inputManager.droneInputEnabled)
+            return;
+
+        cyclic = cyclicInput.ReadValue<Vector2>();
+        pedal = pedalInput.ReadValue<Vector2>();
+        throttle = throttleInput.ReadValue<float>();
     }
 
     public void EnterDrone()
     {
-        inputManager.SetActionMap(inputManager.Input.Drone);
+        inputManager.ActivateDroneControls();
+
         playerCamera.enabled = false;
         droneCamera.enabled = true;
+
+        EnableInput();
     }
 
     public void ExitDrone()
     {
-        inputManager.SetActionMap(inputManager.Input.Player);
+        inputManager.ActivatePlayerControls();
+
         droneCamera.enabled = false;
+
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+
         playerCamera.enabled = true;
+
+        DisableInput();
+    }
+
+    public bool DroneControlsEnabled()
+    {
+        return inputManager.droneInputEnabled;
     }
 
     private void OnExitInput(InputAction.CallbackContext _context)
@@ -51,44 +81,51 @@ public class DroneController : MonoBehaviour
         if (_context.performed) ExitDrone();
     }
 
-    private void OnCyclic(InputAction.CallbackContext _context)
-    {
-        cyclic = _context.ReadValue<Vector2>();
-    }
-
-    private void OnPedal(InputAction.CallbackContext _context)
-    {
-        pedal = _context.ReadValue<Vector2>();
-    }
-
-    private void OnThrottle(InputAction.CallbackContext _context)
-    {
-        throttle = _context.ReadValue<float>();
-    }
-
     private void EnableInput()
     {
+        if (!inputManager.Input.Drone.enabled)
+            return;
+        
+        if (playerInput == null)
+            playerInput = inputManager.Input;
+
         exitInput = playerInput.Drone.Exit;
         exitInput.Enable();
         exitInput.performed += OnExitInput;
 
         cyclicInput = playerInput.Drone.Cyclic;
         cyclicInput.Enable();
-        cyclicInput.performed += OnCyclic;
 
-        pedalInput = playerInput.Drone.Cyclic;
+        pedalInput = playerInput.Drone.Pedal;
         pedalInput.Enable();
-        pedalInput.performed += OnPedal;
 
-        throttleInput = playerInput.Drone.Cyclic;
+        throttleInput = playerInput.Drone.Throttle;
         throttleInput.Enable();
-        throttleInput.performed += OnThrottle;
     }
 
+    private void OnEnable()
+    {
+       //if (!inputManager.Input.Drone.enabled)
+       //    return;
+       //
+       //EnableInput();
+
+    }
     private void OnDisable()
     {
-        cyclicInput.Disable();
+        if (!inputManager.Input.Drone.enabled)
+            return;
+
+        DisableInput();
+    }
+
+    private void DisableInput()
+    {
+        if (playerInput == null)
+            playerInput = inputManager.Input;
+
         pedalInput.Disable();
+        cyclicInput.Disable();
         throttleInput.Disable();
     }
 }

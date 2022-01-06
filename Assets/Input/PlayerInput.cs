@@ -856,12 +856,21 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         },
         {
             ""name"": ""Inventory"",
-            ""id"": ""ed9e7a9c-f2ac-4e00-8046-bb95d9253b88"",
+            ""id"": ""54fdaf6a-a21e-4c22-a77c-6b50a21c87c7"",
             ""actions"": [
+                {
+                    ""name"": ""DropItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""84ad8d97-89db-4945-9e25-32df19b3867b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
                 {
                     ""name"": ""ScrollWheel"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""400c58ba-4549-4348-bd00-61b62a839c9d"",
+                    ""id"": ""f94586d0-a059-4ed1-9695-8c54c8066ae5"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -870,7 +879,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num1"",
                     ""type"": ""Button"",
-                    ""id"": ""54c9c485-1521-41af-9c70-c9b2ae51b2bf"",
+                    ""id"": ""9e93a0c4-eb4a-4ec2-847e-5c590c107b2e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -879,7 +888,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num2"",
                     ""type"": ""Button"",
-                    ""id"": ""9cd7ecbb-ad2e-43ad-8a58-314acac85e9c"",
+                    ""id"": ""81096224-75b2-4eb9-bd3f-6aeaaafbe1e3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -888,7 +897,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num3"",
                     ""type"": ""Button"",
-                    ""id"": ""b7a3ea86-2884-468a-b8bf-014e71998307"",
+                    ""id"": ""82843e36-ad82-45dc-86a2-2b4a69a46d30"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -897,7 +906,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num4"",
                     ""type"": ""Button"",
-                    ""id"": ""4a084897-bd39-4552-81da-0cc341d57a45"",
+                    ""id"": ""5e8210cc-0832-4712-9cd4-ac10ca9aa839"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -906,7 +915,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num5"",
                     ""type"": ""Button"",
-                    ""id"": ""c7b80b33-c226-4491-b69c-e4169a0a880f"",
+                    ""id"": ""646ec37b-9098-4737-b1af-24e5ad72fd5b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -915,7 +924,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num6"",
                     ""type"": ""Button"",
-                    ""id"": ""963d1e14-bca7-4b58-b4cb-1a2c9ecbe89c"",
+                    ""id"": ""7c5d663d-b0b8-4104-83db-7a9bfbbc64a1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -924,7 +933,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num7"",
                     ""type"": ""Button"",
-                    ""id"": ""2da544e6-dc43-45b1-b419-805dd8a162aa"",
+                    ""id"": ""642f5a14-ab01-4e7e-bfbe-dcb792aa4bd2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -933,7 +942,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num8"",
                     ""type"": ""Button"",
-                    ""id"": ""613fa93d-0c68-49de-ba1c-b396e76a2ab0"",
+                    ""id"": ""6f1dccc0-8ff9-4893-b727-7d58d7fb54dd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -942,16 +951,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Num9"",
                     ""type"": ""Button"",
-                    ""id"": ""f89d10d1-951f-4008-a9a1-49ed6e96d765"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""DropItem"",
-                    ""type"": ""Button"",
-                    ""id"": ""9973f82b-b86f-40a7-beec-799f4bb3731b"",
+                    ""id"": ""ece14bfd-8a03-4ecb-b849-9d465d9bf089"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -961,95 +961,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4abc0286-1f73-43af-bf03-a7eb1e63feef"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Num1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""09f8f336-79b5-40b1-9a21-655993b1b021"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Num2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""27252400-8387-4d3c-892c-d5ac540ef8de"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Num3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""95c31246-d9c1-41db-8b47-17709467964b"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Num4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b17d49ac-5777-41b4-862d-d6e578afb3b6"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Num5"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""98c28538-231c-44e5-ab96-3827ad1bb4d1"",
-                    ""path"": ""<Keyboard>/6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Num6"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""409ed3c9-ccb0-4e94-996b-b7823bc85cf3"",
-                    ""path"": ""<Keyboard>/7"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Num7"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c50c0275-f8ce-4519-9392-4e9633dc59a2"",
-                    ""path"": ""<Keyboard>/8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Num8"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d00c87c3-ab4a-469a-86cf-987ddfb38578"",
+                    ""id"": ""24ccb176-6cae-4a3e-9be0-b7a3624ed0ea"",
                     ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1060,23 +972,111 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0dfaf4aa-1705-4758-ae59-4802cc868bd0"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": ""Tap"",
+                    ""id"": ""0748d7d9-1cdf-48bf-9002-c70234459eaa"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""DropItem"",
+                    ""groups"": """",
+                    ""action"": ""Num8"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d80b03b2-faa9-408d-b885-fae51944c197"",
+                    ""id"": ""b50ab20f-e7a9-44b0-8349-98bf5c0ca3b0"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Num7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca4fa632-dc7b-4f96-a9aa-7f1a05386664"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Num6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50e072f1-7522-4fb8-898e-b11d55262617"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Num5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48e5ab3b-ecef-49dc-b919-87f8d553cd58"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Num4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4b24eb1-8c62-43a3-9d21-e0d3f2057ecf"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Num3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23edb655-b64e-4fcf-90bb-acd6086fa13c"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Num2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56972028-b550-4e6a-80fc-dee5520b81ea"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Num1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa4d15c4-a60d-49b2-bcd2-d3d111614861"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""ScrollWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""326817ab-d1d7-4730-a485-dc330b365830"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""DropItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1560,6 +1560,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_DropItem = m_Inventory.FindAction("DropItem", throwIfNotFound: true);
         m_Inventory_ScrollWheel = m_Inventory.FindAction("ScrollWheel", throwIfNotFound: true);
         m_Inventory_Num1 = m_Inventory.FindAction("Num1", throwIfNotFound: true);
         m_Inventory_Num2 = m_Inventory.FindAction("Num2", throwIfNotFound: true);
@@ -1570,7 +1571,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Inventory_Num7 = m_Inventory.FindAction("Num7", throwIfNotFound: true);
         m_Inventory_Num8 = m_Inventory.FindAction("Num8", throwIfNotFound: true);
         m_Inventory_Num9 = m_Inventory.FindAction("Num9", throwIfNotFound: true);
-        m_Inventory_DropItem = m_Inventory.FindAction("DropItem", throwIfNotFound: true);
         // Build
         m_Build = asset.FindActionMap("Build", throwIfNotFound: true);
         m_Build_Place = m_Build.FindAction("Place", throwIfNotFound: true);
@@ -1822,6 +1822,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     // Inventory
     private readonly InputActionMap m_Inventory;
     private IInventoryActions m_InventoryActionsCallbackInterface;
+    private readonly InputAction m_Inventory_DropItem;
     private readonly InputAction m_Inventory_ScrollWheel;
     private readonly InputAction m_Inventory_Num1;
     private readonly InputAction m_Inventory_Num2;
@@ -1832,11 +1833,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Inventory_Num7;
     private readonly InputAction m_Inventory_Num8;
     private readonly InputAction m_Inventory_Num9;
-    private readonly InputAction m_Inventory_DropItem;
     public struct InventoryActions
     {
         private @PlayerInput m_Wrapper;
         public InventoryActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DropItem => m_Wrapper.m_Inventory_DropItem;
         public InputAction @ScrollWheel => m_Wrapper.m_Inventory_ScrollWheel;
         public InputAction @Num1 => m_Wrapper.m_Inventory_Num1;
         public InputAction @Num2 => m_Wrapper.m_Inventory_Num2;
@@ -1847,7 +1848,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Num7 => m_Wrapper.m_Inventory_Num7;
         public InputAction @Num8 => m_Wrapper.m_Inventory_Num8;
         public InputAction @Num9 => m_Wrapper.m_Inventory_Num9;
-        public InputAction @DropItem => m_Wrapper.m_Inventory_DropItem;
         public InputActionMap Get() { return m_Wrapper.m_Inventory; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1857,6 +1857,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_InventoryActionsCallbackInterface != null)
             {
+                @DropItem.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
+                @DropItem.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
+                @DropItem.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
                 @ScrollWheel.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnScrollWheel;
@@ -1887,13 +1890,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Num9.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNum9;
                 @Num9.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNum9;
                 @Num9.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNum9;
-                @DropItem.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
-                @DropItem.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
-                @DropItem.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnDropItem;
             }
             m_Wrapper.m_InventoryActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @DropItem.started += instance.OnDropItem;
+                @DropItem.performed += instance.OnDropItem;
+                @DropItem.canceled += instance.OnDropItem;
                 @ScrollWheel.started += instance.OnScrollWheel;
                 @ScrollWheel.performed += instance.OnScrollWheel;
                 @ScrollWheel.canceled += instance.OnScrollWheel;
@@ -1924,9 +1927,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Num9.started += instance.OnNum9;
                 @Num9.performed += instance.OnNum9;
                 @Num9.canceled += instance.OnNum9;
-                @DropItem.started += instance.OnDropItem;
-                @DropItem.performed += instance.OnDropItem;
-                @DropItem.canceled += instance.OnDropItem;
             }
         }
     }
@@ -2130,6 +2130,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     }
     public interface IInventoryActions
     {
+        void OnDropItem(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnNum1(InputAction.CallbackContext context);
         void OnNum2(InputAction.CallbackContext context);
@@ -2140,7 +2141,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnNum7(InputAction.CallbackContext context);
         void OnNum8(InputAction.CallbackContext context);
         void OnNum9(InputAction.CallbackContext context);
-        void OnDropItem(InputAction.CallbackContext context);
     }
     public interface IBuildActions
     {

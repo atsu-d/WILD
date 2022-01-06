@@ -21,7 +21,6 @@ public class DroneMover : MonoBehaviour
     private List<IMotor> motors = new List<IMotor>();
 
     [Header("Drone Camera Properties")]
-    private Transform droneCam;
     private float lookVertical, lastVertical, lastYaw;
     private float cameraSpeed = 115f;
     [SerializeField] private float lookThreshold = 1.1f;
@@ -52,7 +51,6 @@ public class DroneMover : MonoBehaviour
     private void Start()
     {
         input = GetComponent<DroneController>();
-        droneCam = GetComponentInChildren<Camera>().transform;
         motors = GetComponentsInChildren<IMotor>().ToList();
 
         foreach (IMotor _motor in motors)
@@ -68,7 +66,7 @@ public class DroneMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb == null) 
+        if (rb == null || !input.DroneControlsEnabled()) 
             return;
 
         HandlePhysics();
@@ -126,7 +124,8 @@ public class DroneMover : MonoBehaviour
         lookVertical = Mathf.Clamp(lookVertical, -upperVerticalLimit, lowerVerticalLimit);
 
         #region Update Rotation
-        droneCam.localRotation = Quaternion.Euler(new Vector3(lookVertical, 0, 0));
+        Transform _droneCam = input.droneCamera.transform;
+        _droneCam.localRotation = Quaternion.Euler(new Vector3(lookVertical, 0, 0));
         #endregion
     }
 

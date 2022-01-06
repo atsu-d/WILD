@@ -100,13 +100,11 @@ namespace PlayerController
 		protected virtual void Setup()
 		{
 			movementSpeed = baseMovementSpeed;
-			managers.InputManager.SetPlayerInput(playerInput);
-			managers.InputManager.SetActionMap(playerInput.Player);
+			managers.InputManager.Initialize(playerInput);
 		}
 
 		void Update()
 		{
-			//HandleJumpKeyInput();
 			movementSpeed = HandleSpeed();
 		}
 
@@ -630,16 +628,19 @@ namespace PlayerController
 
         private void OnSprint(InputValue _value)
         {
+			if (!playerInput.Player.enabled) return;
 			sprintInput = _value.Get<float>() > 0;
 		}
 
 		private void OnMove(InputValue _value)
         {
+			if (!playerInput.Player.enabled) return;
 			moveInput = _value.Get<Vector2>();
 		}
 
 		private void OnJump(InputValue _value)
 		{
+			if (!playerInput.Player.enabled) return;
 			jumpInput = _value.isPressed;
 			HandleJumping();
 		}

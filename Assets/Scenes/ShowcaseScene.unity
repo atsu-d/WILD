@@ -2494,10 +2494,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7184730965858000212, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
-      propertyPath: m_NeverAutoSwitchControlSchemes
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
 --- !u!20 &349325493 stripped
@@ -14882,6 +14878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 0}
+  droneObject: {fileID: 0}
   droneCamera: {fileID: 0}
   playerCamera: {fileID: 0}
 --- !u!65 &2014143435

@@ -21,7 +21,6 @@ public class DroneMotor : MonoBehaviour, IMotor
         _upwardVector.z = 0;
         float _upwardForce = gravity * (1 - _upwardVector.magnitude);
         
-
         Vector3 _motorForce = Vector3.zero;
         _motorForce = transform.up * ((_rb.mass * gravity + _upwardForce) + (_inputs.Throttle * maxPower)) / numberOfMotors;
 
