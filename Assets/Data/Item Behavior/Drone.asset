@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b07c34ff2ed3b498a2823d8ec5a60e, type: 3}
   m_Name: Drone
   m_EditorClassIdentifier: 
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 11400000, guid: 25cf0fdcb5344b94e9994a2c56f2b35f, type: 2}
+  gadgetType: 1
   drone: {fileID: 0}

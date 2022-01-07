@@ -8,7 +8,7 @@ namespace ItemSystem
     public class WorldIconUI : MonoBehaviour
     {
         public ManagerReference managers;
-        public InteractionData interactionData;
+        public InteractionManager interactionManager;
 
         private enum ImageState
         {
@@ -45,7 +45,7 @@ namespace ItemSystem
 
         private void LateUpdate()
         {
-            if (interactionData.worldInteractable != item && !idleImage.enabled) SetIdle();
+            if (interactionManager.worldInteractable != item && !idleImage.enabled) SetIdle();
 
             float _distance = Vector3.Distance(transform.position, playerTr.position) * multiplier;
 

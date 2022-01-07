@@ -9,13 +9,11 @@ namespace ItemSystem
         [SerializeField] private ItemData itemData;
         public ItemData Data => itemData;
 
-        public UseBehavior OnUse; // E Key
-        public DropBehavior OnDrop; //R Key
-        public DepositBehavior OnDeposit;
+        public UseBehavior UseAction; // E Key
+        public DropBehavior DropAction; //R Key
+        public DepositBehavior DepositAction;
 
-        public HoldBehavior OnHoldUse; //Hold E
-        public PickUpBehavior OnPickUp; //Hold E
-
+        public PickUpBehavior PickUpAction; //Hold E
 
         protected int nonInteractableLayer = 30;
         private Collider col;

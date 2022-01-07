@@ -21,15 +21,16 @@ public class DroneController : MonoBehaviour
     public Vector2 Pedal { get => pedal; }
     public float Throttle { get => throttle; }
 
+    public Rigidbody rb { get; private set; }
+
     private void Awake()
     {
-        droneObject.drone = this;
-
         if (droneCamera == null)
             droneCamera = GetComponentInChildren<Camera>();
-
         if (playerCamera == null)
             playerCamera = Camera.main;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
@@ -49,25 +50,22 @@ public class DroneController : MonoBehaviour
 
     public void EnterDrone()
     {
-        inputManager.ActivateDroneControls();
-
         playerCamera.enabled = false;
         droneCamera.enabled = true;
 
+        inputManager.ActivateDroneControls();
         EnableInput();
     }
 
     public void ExitDrone()
     {
-        inputManager.ActivatePlayerControls();
-
+        if (droneCamera == null)
+            droneCamera = GetComponentInChildren<Camera>();
+        
         droneCamera.enabled = false;
-
-        if (playerCamera == null)
-            playerCamera = Camera.main;
-
         playerCamera.enabled = true;
 
+        inputManager.ActivatePlayerControls();
         DisableInput();
     }
 
@@ -105,10 +103,7 @@ public class DroneController : MonoBehaviour
 
     private void OnEnable()
     {
-       //if (!inputManager.Input.Drone.enabled)
-       //    return;
-       //
-       //EnableInput();
+        droneObject.drone = this;
 
     }
     private void OnDisable()

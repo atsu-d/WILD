@@ -9,11 +9,10 @@ namespace ItemSystem
     public class InteractController : MonoBehaviour
     {
         public ManagerReference managers;
+        public InteractionManager interactionManager;
 
         private PlayerInput inputManger;
         private InputAction interactInput, dropInput;
-
-        public InteractionData interactionData;
 
         [Header("Interaction Raycast")]
         public float raycastDistance;
@@ -42,7 +41,8 @@ namespace ItemSystem
 
         private void Start()
         {
-            interactionData.SetInventory(managers.InventoryManager);
+            interactionManager.SetInventory(managers.InventoryManager);
+            interactionManager.SetInventoryTransform(inventoryTr);
 
             holdTimer = 0f;
             isInteracting = false;
@@ -59,26 +59,31 @@ namespace ItemSystem
             if (activeHotbar.value <= 0) return;
 
             #region Drop to Ground
-            if (interactionData.worldContainer == null)
+            if (interactionManager.worldContainer == null)
             {
-                if (OnDiscardItem != null) OnDiscardItem();
+                if (interactionManager.activeItem.DropAction == null)
+                    return;
 
-                Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
-                ItemManager _interactable = Instantiate(interactionData.activeItem.Prefab, _origin, Quaternion.identity).GetComponent<ItemManager>();
-                _interactable.OnDrop.OnInteract(_interactable.rb, camTr, _interactable.Data);
+                //if (OnDiscardItem != null) 
+                //    OnDiscardItem();
 
+                interactionManager.OnInteract(InteractionType.Drop);
                 activeHotbar.Set(0);
             }
             #endregion
 
             #region Add to storage
-            if (interactionData.worldContainer != null && interactionData.worldContainer.CanAdd(interactionData.activeItem))
+            if (interactionManager.worldContainer != null && interactionManager.worldContainer.CanAdd(interactionManager.activeItem.Data))
             {
-                Debug.Log(interactionData.activeItem.name + " added to " + interactionData.worldContainer.name);
-                if (OnDiscardItem != null) OnDiscardItem();
+                if (interactionManager.activeItem.DepositAction == null)
+                    return;
 
-                interactionData.heldItem.OnDeposit.OnInteract();
+                if (OnDiscardItem != null)
+                    OnDiscardItem();
 
+                Debug.Log(interactionManager.activeItem.name + " added to " + interactionManager.worldContainer.name);
+
+                interactionManager.OnInteract(InteractionType.Deposit);
                 activeHotbar.Set(0);
             }
             #endregion
@@ -87,7 +92,7 @@ namespace ItemSystem
 
         private void HandleInteraction()
         {
-            ItemManager _interactable = interactionData.worldInteractable;
+            ItemManager _interactable = interactionManager.worldInteractable;
             //if (interactionData.worldInteractable == null) return;
             if (_interactable)
                 _interactable.ChangeInteractUI(false);
@@ -96,30 +101,30 @@ namespace ItemSystem
             {
                 isInteracting = true;
 
-                if (_interactable && _interactable.OnPickUp != null  && isInteracting)
+                if (_interactable && _interactable.PickUpAction != null  && isInteracting)
                 {
                     _interactable.ChangeInteractUI(true);
                     holdTimer += Time.deltaTime;
 
-                    holdPercent = holdTimer / _interactable.OnPickUp.holdDuration;
+                    holdPercent = holdTimer / _interactable.PickUpAction.holdDuration;
 
                     if (holdPercent > 1f)
                     {
-                        _interactable.OnPickUp.OnInteract(_interactable.Data, _interactable.gameObject);
+                        interactionManager.OnInteract(InteractionType.PickUp);
                         holdTimer = 0f;
                         holdPercent = 0f;
                     }
                 }
                 else
                 {
-                    if (interactionData.heldItem != null)
+                    if (interactionManager.activeItem != null)
                     {
+                        if (interactionManager.activeItem.UseAction == null)
+                            return;
+
                         if (OnDiscardItem != null) OnDiscardItem();
 
-                        Vector3 _origin = inventoryTr.position + camTr.forward * 0.8f;
-                        ItemManager _heldItem = Instantiate(interactionData.activeItem.Prefab, _origin, Quaternion.identity).GetComponent<ItemManager>();
-                        _heldItem.OnUse.OnInteract(_heldItem.Data, _heldItem.rb);
-
+                        interactionManager.OnInteract(InteractionType.Use);
                         activeHotbar.Set(0);
                     }
 
@@ -146,13 +151,13 @@ namespace ItemSystem
             {
                 ItemManager _currentInteraction = _hit.transform.gameObject.GetComponent<ItemManager>();
 
-                if (_currentInteraction != null && interactionData.worldInteractable != _currentInteraction)
-                { interactionData.SetInteractable(_currentInteraction); }
+                if (_currentInteraction != null && interactionManager.worldInteractable != _currentInteraction)
+                { interactionManager.SetInteractable(_currentInteraction); }
 
                 if(activeHotbar.value != 0)
                 {
                     ContainerManager _currentContainer = _hit.transform.gameObject.GetComponent<ContainerManager>();
-                    if (_currentContainer != null && interactionData.worldContainer != _currentContainer) interactionData.SetContainer(_currentContainer);
+                    if (_currentContainer != null && interactionManager.worldContainer != _currentContainer) interactionManager.SetContainer(_currentContainer);
                 }
             }
             else ResetInteraction();
@@ -164,10 +169,10 @@ namespace ItemSystem
 
         public void ResetInteraction()
         {
-            if (interactionData.worldInteractable != null || interactionData.worldContainer != null)
+            if (interactionManager.worldInteractable != null || interactionManager.worldContainer != null)
             {
-                interactionData.ClearInteractable();
-                interactionData.ClearContainer();
+                interactionManager.ClearInteractable();
+                interactionManager.ClearContainer();
             }
         }
 

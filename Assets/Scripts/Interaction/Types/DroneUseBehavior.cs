@@ -10,13 +10,17 @@ namespace ItemSystem
         public bool inUse { get; private set; }
         public DroneController drone;
 
-        public override void OnInteract(ItemData _data, Rigidbody _rb)
+        public void Awake()
         {
-            Debug.Log("Called");
-            interactionData.playerInventory.Remove(_data);
-            interactionData.ClearActiveItem();
+            gadgetType = GadgetType.Drone;
+        }
 
-            _rb.isKinematic = false;
+        public override void OnUse()
+        {
+            ItemManager _drone = interactionManager.activeItem;
+
+            interactionManager.playerInventory.Remove(_drone.Data);
+            drone.rb.isKinematic = false;
 
             drone.EnterDrone();
             inUse = true;

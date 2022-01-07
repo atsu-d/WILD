@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba412897b4dda97498fe406ddce38493, type: 3}
-  m_Name: Interaction Data
+  m_Script: {fileID: 11500000, guid: 33bb0ed93807c0c47977b971c353460c, type: 3}
+  m_Name: Interaction Manager
   m_EditorClassIdentifier: 
-  playerInventory: {fileID: 0}
+  spawnForwardDistance: 0.8
+  OnDiscardItem: {fileID: 11400000, guid: 3e14737f86c328c46b98746d94662678, type: 2}

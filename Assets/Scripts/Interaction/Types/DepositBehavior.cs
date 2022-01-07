@@ -9,12 +9,10 @@ namespace ItemSystem
     {
         public void OnInteract()
         {
-            ItemData _data = interactionData.activeItem;
+            ItemData _data = interactionManager.activeItem.Data;
 
-            interactionData.playerInventory.Remove(_data);
-            interactionData.worldContainer.Add(_data);
-
-            interactionData.ClearHeldItem();
+            interactionManager.playerInventory.Remove(_data);
+            interactionManager.worldContainer.Add(_data);
         }
     }
 }

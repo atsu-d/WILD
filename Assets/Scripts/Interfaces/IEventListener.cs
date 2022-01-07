@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEventListener
 {
-    public void OnEventCalled();
+    public void OnEventCalled(int _id);
 }

@@ -6,6 +6,6 @@ namespace ItemSystem
 {
     public class ItemBehavior : ScriptableObject
     {
-        public InteractionData interactionData;
+        public InteractionManager interactionManager;
     }
 }

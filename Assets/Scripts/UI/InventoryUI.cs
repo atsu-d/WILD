@@ -37,9 +37,10 @@ namespace ItemSystem
             _slot.Set(_item, _inventoryPos);
         }
 
-        public void OnEventCalled()
+        public void OnEventCalled(int _id)
         {
-            managers.InventoryManager.OnInventoryUpdate += OnUpdateInventory;
+            if (_id == 1)
+                managers.InventoryManager.OnInventoryUpdate += OnUpdateInventory;
         }
 
         private void OnEnable()

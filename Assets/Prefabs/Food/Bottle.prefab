@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 11400000, guid: 25cf0fdcb5344b94e9994a2c56f2b35f, type: 2}
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -550,9 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: f22289ba3f158f84685b0a09a6c08f5c, type: 2}
-  OnUse: {fileID: 0}
-  OnDrop: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
-  OnDeposit: {fileID: 11400000, guid: 30968a4ea864f2b4cbfa42c81104543c, type: 2}
-  OnHoldUse: {fileID: 0}
-  OnPickUp: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
+  UseAction: {fileID: 0}
+  DropAction: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
+  DepositAction: {fileID: 11400000, guid: 30968a4ea864f2b4cbfa42c81104543c, type: 2}
+  PickUpAction: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
   iconUI: {fileID: 8657143418268143425}

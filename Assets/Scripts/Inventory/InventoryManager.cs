@@ -9,7 +9,7 @@ namespace ItemSystem
     public class InventoryManager : ContainerManager
     {
         public ManagerReference managers;
-        public InteractionData interactionData;
+        public InteractionManager interactionManager;
         public PlayerInput playerInput;
 
         [SerializeField] private IntVariable activeHotbar;
@@ -40,7 +40,8 @@ namespace ItemSystem
             if (_scrollDelta > 0) activeHotbar.Set(HotbarInt(activeHotbar.value, true));
             else activeHotbar.Set(HotbarInt(activeHotbar.value, false));
 
-            if (OnHotbarSelection != null) OnHotbarSelection();
+            if (OnHotbarSelection != null) 
+                OnHotbarSelection();
         }
 
         private void Select(InputAction.CallbackContext context)
@@ -50,69 +51,30 @@ namespace ItemSystem
 
             if (inventory.Count <= 0 || inventory.Count < _keyPressed) return;
 
-            if (_keyPressed == activeHotbar.value)
-            {
-                activeHotbar.Set(0);
-                interactionData.ClearActiveItem();
-            }
-            else
-            {
-                activeHotbar.Set(_keyPressed);
-                SetItem(_keyPressed);
-            }
+            if (_keyPressed == activeHotbar.value) activeHotbar.Set(0);
+            else activeHotbar.Set(_keyPressed);
 
-            if (OnHotbarSelection != null) OnHotbarSelection();
+            if (OnHotbarSelection != null) 
+                OnHotbarSelection();
         }
 
         private int HotbarInt(int _currentSelection, bool _positive)
         {
-            int _nextIndex;
-
             if (_positive)
             {
-                if (_currentSelection <= 0) 
-                {
-                    _nextIndex = 1;
-                    SetItem(_nextIndex);
-                    return _nextIndex; 
-                }
+                if (_currentSelection <= 0) return 1; 
 
-                if (_currentSelection + 1 > inventory.Count)
-                {
-                    interactionData.ClearActiveItem();
-                    return 0;
-                }
-                else 
-                {
-                    _nextIndex = _currentSelection + 1;
-                    SetItem(_nextIndex);
-                    return _nextIndex; 
-                }
+                if (_currentSelection + 1 > inventory.Count) return 0;
+                else return _currentSelection + 1; 
             }
             else
             {
-                if (_currentSelection <= 0)
-                {
-                    _nextIndex = inventory.Count;
-                    SetItem(_nextIndex);
-                    return _nextIndex;
-                }
+                if (_currentSelection <= 0) return inventory.Count;
 
-                if (_currentSelection - 1 < 1)
-                {
-                    interactionData.ClearActiveItem();
-                    return 0;
-                }
-                else
-                {
-                    _nextIndex = _currentSelection - 1;
-                    SetItem(_nextIndex);
-                    return _nextIndex;
-                }
+                if (_currentSelection - 1 < 1) return 0;
+                else return _currentSelection - 1;
             }
         }
-
-        private void SetItem(int _index) { interactionData.SetActiveItem(inventory[_index - 1].data); }
 
         public override void Add(ItemData _data)
         {

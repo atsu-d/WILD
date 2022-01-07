@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 0}
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
 --- !u!1 &1255231704453772
 GameObject:
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 11400000, guid: 25cf0fdcb5344b94e9994a2c56f2b35f, type: 2}
   raycastDistance: 3
   raycastSphereRadius: 0.25
   interactableLayer:
@@ -516,7 +516,7 @@ MonoBehaviour:
   allowType: 2
   capacity: 0
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 11400000, guid: 25cf0fdcb5344b94e9994a2c56f2b35f, type: 2}
   activeHotbar: {fileID: 11400000, guid: a648e41c142198c449b8da09a36777f1, type: 2}
 --- !u!114 &7184730965858000212
 MonoBehaviour:

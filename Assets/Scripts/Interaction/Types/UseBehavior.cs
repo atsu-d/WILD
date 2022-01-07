@@ -6,7 +6,13 @@ namespace ItemSystem
 {
     public abstract class UseBehavior : ItemBehavior
     {
-        public abstract void OnInteract(ItemData _data, Rigidbody _rb);
+        public GadgetType gadgetType;
+        public abstract void OnUse();
         public abstract void OnUseEnd();
+    }
+
+    public enum GadgetType
+    {
+        Camera, Drone, Misc
     }
 }

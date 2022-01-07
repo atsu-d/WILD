@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94ae96e1ecb97e64a9bef6c8d25d1b00, type: 3}
-  m_Name: ManagerEvent
+  m_Name: OnDiscardItemEvent
   m_EditorClassIdentifier: 
-  eventID: 1
+  eventID: 2

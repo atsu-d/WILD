@@ -111,7 +111,7 @@ Rigidbody:
   m_GameObject: {fileID: 406272443707586487}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.01
+  m_Drag: 0.356
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -131,11 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 61eefab72f3edfd42b5ee292a4007958, type: 2}
-  OnUse: {fileID: 11400000, guid: 2609bf3b903a5044b960f0e6e8db09be, type: 2}
-  OnDrop: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
-  OnDeposit: {fileID: 11400000, guid: 30968a4ea864f2b4cbfa42c81104543c, type: 2}
-  OnHoldUse: {fileID: 0}
-  OnPickUp: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
+  UseAction: {fileID: 11400000, guid: 2609bf3b903a5044b960f0e6e8db09be, type: 2}
+  DropAction: {fileID: 11400000, guid: 87986720fac0d7c4d8136b9c61d1125d, type: 2}
+  DepositAction: {fileID: 11400000, guid: 30968a4ea864f2b4cbfa42c81104543c, type: 2}
+  PickUpAction: {fileID: 11400000, guid: 6411119a1e5cef44e9ede91cced15421, type: 2}
   iconUI: {fileID: 8586952534149629284}
 --- !u!114 &2756877158397633974
 MonoBehaviour:
@@ -865,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managers: {fileID: 11400000, guid: 76409924d0df2fe41a99657de20aa2ba, type: 2}
-  interactionData: {fileID: 11400000, guid: aedf87f0e3169e743a6aeee1e60e5389, type: 2}
+  interactionManager: {fileID: 11400000, guid: 25cf0fdcb5344b94e9994a2c56f2b35f, type: 2}
   fadeCurve:
     serializedVersion: 2
     m_Curve:

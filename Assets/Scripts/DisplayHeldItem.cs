@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ItemSystem;
+
 public class DisplayHeldItem : MonoBehaviour, IEventListener
 {
     public ManagerReference managers;
-    public InteractionData interactionData;
+    public InteractionManager interactionManager;
 
     [SerializeField] private IntVariable activeHotbar;
 
@@ -13,37 +14,52 @@ public class DisplayHeldItem : MonoBehaviour, IEventListener
     {
         if (activeHotbar.value > managers.InventoryManager.inventory.Count) return;
 
-        if (interactionData.heldItem != null) DestroyDisplay();
+        if (interactionManager.activeItem != null)
+            DestroyDisplay();
 
-        if (activeHotbar.value == 0) { interactionData.ClearHeldItem(); }
+        if (activeHotbar.value == 0)
+            DestroyDisplay();
         else
         {
-            interactionData.SetHeldItem(Instantiate(interactionData.activeItem.Prefab, transform).GetComponent<ItemManager>());
-            interactionData.heldItem.SetNonInteractive();
+            interactionManager.SetActiveItem(Instantiate(interactionManager.playerInventory.inventory[activeHotbar.value - 1].data.Prefab, transform).GetComponent<ItemManager>());
+            interactionManager.activeItem.SetNonInteractive();
         }
     }
 
     private void DestroyDisplay()
     {
-        Destroy(interactionData.heldItem.gameObject);
+        if (interactionManager.activeItem == null)
+            return;
+
+        Destroy(interactionManager.activeItem.gameObject);
+        interactionManager.ClearActiveItem();
     }
 
-    public void OnEventCalled()
+    public void OnEventCalled(int _id)
     {
-        managers.InventoryManager.OnHotbarSelection += SetActiveInteractable;
-        managers.InteractManager.OnDiscardItem += DestroyDisplay;
+        switch (_id)
+        {
+            case 1:
+                managers.InventoryManager.OnHotbarSelection += SetActiveInteractable;
+                break;
+            case 2:
+                DestroyDisplay();
+                break;
+        }
     }
 
     private void OnEnable()
     {
         managers.managerEvent.RegisterListener(this);
+        interactionManager.OnDiscardItem.RegisterListener(this);
     }
 
     private void OnDisable()
     {
         managers.managerEvent.UnregisterListener(this);
+        interactionManager.OnDiscardItem.UnregisterListener(this);
+
         managers.InventoryManager.OnHotbarSelection -= SetActiveInteractable;
-        managers.InteractManager.OnDiscardItem -= DestroyDisplay;
     }
 
 }
